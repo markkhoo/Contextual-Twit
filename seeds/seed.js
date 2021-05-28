@@ -47,15 +47,10 @@ const userSeed = [
     },
 ]
 
-const tagSeed = [
-    {
-        name: "valorant"
-    }
-]
 
 
-db.user.remove({})
-  .then(() => db.user.collection.insertMany(user))
+db.User.remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
