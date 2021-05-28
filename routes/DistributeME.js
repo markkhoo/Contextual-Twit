@@ -2,6 +2,7 @@ require('dotenv').config();
 const Twitter = require('twitter');
 const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
+const vader = require('vader-sentiment');
 
 // Authentication 
 const client = new Twitter({
@@ -20,6 +21,7 @@ const toneAnalyzer = new ToneAnalyzerV3({
 // ==============================================
 const searchQuery = 'valorant';
 
+// Get Tweets
 client.get('search/tweets', { q: searchQuery, lang: 'en', count: 10 }, function (error, tweets, response) {
 
   const data = [];
@@ -33,6 +35,7 @@ client.get('search/tweets', { q: searchQuery, lang: 'en', count: 10 }, function 
 
   // console.log(tweets.statuses); console.log(toneChatParams);
 
+  // Watson-Sentiment
   toneAnalyzer.toneChat(toneChatParams)
     .then(utteranceAnalyses => {
 
@@ -42,12 +45,16 @@ client.get('search/tweets', { q: searchQuery, lang: 'en', count: 10 }, function 
       // });
 
       for (let i = 0; i < tweets.statuses.length; i++) {
+        // Vader-Sentiment
+        let intensity = vader.SentimentIntensityAnalyzer.polarity_scores(toneChatParams.utterances[i].text);
+
         if (toneChatParams.utterances[i].text === utteranceAnalyses.result.utterances_tone[i].utterance_text) {
           data.push({
             id: i,
             created_at: tweets.statuses[i].created_at,
             id_str: tweets.statuses[i].id_str,
             screen_name: tweets.statuses[i].user.screen_name,
+            followers_count: tweets.statuses[i].user.followers_count,
             user_verified: tweets.statuses[i].user.verified,
             is_quote_status: tweets.statuses[i].is_quote_status,
             retweet_count: tweets.statuses[i].retweet_count,
@@ -55,7 +62,8 @@ client.get('search/tweets', { q: searchQuery, lang: 'en', count: 10 }, function 
             hashtags: tweets.statuses[i].entities.hashtags,
             lang: tweets.statuses[i].lang,
             text: utteranceAnalyses.result.utterances_tone[i].utterance_text,
-            tones: utteranceAnalyses.result.utterances_tone[i].tones
+            watson_tones: utteranceAnalyses.result.utterances_tone[i].tones,
+            vader_intensity: intensity
           });
         } else {
           data.push({
@@ -63,6 +71,7 @@ client.get('search/tweets', { q: searchQuery, lang: 'en', count: 10 }, function 
             created_at: tweets.statuses[i].created_at,
             id_str: tweets.statuses[i].id_str,
             screen_name: tweets.statuses[i].user.screen_name,
+            followers_count: tweets.statuses[i].user.followers_count,
             user_verified: tweets.statuses[i].user.verified,
             is_quote_status: tweets.statuses[i].is_quote_status,
             retweet_count: tweets.statuses[i].retweet_count,
@@ -70,7 +79,8 @@ client.get('search/tweets', { q: searchQuery, lang: 'en', count: 10 }, function 
             hashtags: tweets.statuses[i].entities.hashtags,
             lang: tweets.statuses[i].lang,
             text: toneChatParams.utterances[i].text,
-            tones: []
+            watson_tones: [],
+            vader_intensity: intensity
           });
         };
       };
