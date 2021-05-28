@@ -2,6 +2,7 @@ const router = require("express").Router();
 const postController = require("../../controllers/postController");
 
 
+
 // Matches with "/api/books"
 router
     .route("/")
@@ -17,8 +18,8 @@ router
     .route("/:id")                      //-------------------Left here in case we need it later----------------
     .delete(postController.remove);
 
-// router
-//     .route("/google/:book")
-//     .get(postsController.googleBooks)
+router
+    .route("/login") 
+    .post(postController.create);
 
 module.exports = router;
