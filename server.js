@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
+const routes = require("./routes");
 
 const app = express();
 
@@ -13,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
+app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
 
@@ -21,9 +22,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
