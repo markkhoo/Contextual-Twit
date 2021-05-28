@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+import Chart_Vader from "./components/chart_vader/chart_vader";
+
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -12,6 +14,7 @@ function App() {
       <p className="App-intro">
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
+      <Chart_Vader />
     </div>
   );
 }
