@@ -5,7 +5,7 @@ const postController = require("../controllers/postController");
 
 //-----------THIS ROUTE WORKS------------------
 router
-    .route("/api")
+    .route("/")
     .get(postController.findAll);
 
 // router

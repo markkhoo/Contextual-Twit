@@ -19,7 +19,7 @@ const userSchema = new Schema({
         trim: true,
         required: "Password is Required",
         validate: [({ length }) => length >= 6, "Password should be longer."],
-        bcrypt: true
+        //bcrypt: true
       },    
       
     tag: [
