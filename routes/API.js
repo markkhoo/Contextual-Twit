@@ -22,6 +22,8 @@ router
     .route("/:id")                      //-------------------Left here in case we need it later----------------
     .delete(postController.remove);
 
+
+//-----route works BUT ONLY RETURNS THE FIRST USER---------NEED TO ADJUST THE PARAMS-----------------------    
 router
     .route("/login") 
     .post(postController.findOne);

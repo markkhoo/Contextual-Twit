@@ -12,8 +12,8 @@ module.exports = {
     },
 
 
-    findOne: function(req, res) {
-      db.User.findOne(req.params.id)
+    findOne: async function(req, res) {
+      db.User.findOne({where: {username: req.body.username}})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
