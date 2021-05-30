@@ -18,15 +18,25 @@ router
     .post(postController.create);
 
 
-router
-    .route("/:id")                      //-------------------Left here in case we need it later----------------
-    .delete(postController.remove);
+// router
+//     .route("/:id")                      //-------------------Left here in case we need it later----------------
+//     .delete(postController.remove);
 
 
-//-----route works BUT ONLY RETURNS THE FIRST USER---------NEED TO ADJUST THE PARAMS-----------------------    
+//-----THIS ROUTE WORKS BUT SEE COMMENTS ON postController-----------------------    
 router
     .route("/login") 
     .post(postController.findOne);
+
+router.post('/logout', (req,res) => {
+        if (req.session.logged_in) {
+            req.session.destroy(() => {
+                res.status(204).end();
+            });
+        } else {
+            res.status(404).end();
+        }
+    });
 
 module.exports = router;
 
