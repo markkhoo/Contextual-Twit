@@ -6,26 +6,24 @@ const Twitter = require('twitter');
 const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const vader = require('vader-sentiment');
-// Authentication 
+// TWITTER Authentication 
 const client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   bearer_token: process.env.TWITTER_BEARER_TOKEN
 });
+//WATSON AUTHENTICATION
 const toneAnalyzer = new ToneAnalyzerV3({
   authenticator: new IamAuthenticator({ apikey: process.env.TONE_ANALYZER_KEY }),
   version: '2017-09-21',
   serviceUrl: 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com'
 });
-
-// ==============================================
-// ========== INPUT SEARCH QUERY BELOW ==========
-// ==============================================
 const searchQuery = 'valorant';
 
 
-//---------THIS ROUTE WORKS------------------
+
 module.exports = {
+  //==========================ROUTE WORKS-GETS ALL USERS*****************WE NEED TO REMOVE THIS ROUTE LATER, DON'T WANT USER INFO BEING PULLED***********************
   findAll: function (req, res) {
     db.User.find(req.query)
       // .sort({ _id: -1 })
@@ -33,13 +31,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  //---------THIS ROUTE WORKS------------  *****************THIS IS THE REGISTER NEW USER ROUTE*************************
+  //=======================================ROUTE WORKS*****************REGISTER NEW USER ROUTE************************************************************************
   create: function (req, res) {
     db.User.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-
+//=========================================DOES NOT WORK************LOGOUT ROUTE***************************************************************************************
   destroy: function (req, res) {
     if (req.session.logged_in) {
       req.session.destroy(() => {
@@ -50,7 +48,7 @@ module.exports = {
     }
   },
 
-  //-------------THIS ROUTE WORKS AS IS---------------******IF WE UNCOMMENT EVERYTHING THAT'S IN IT, IT BREAKS*****************
+  //======================================DOES NOT WORK****************LEAVE IT COMMENTED OUT FOR NOW*****************************************************************
   //   findOne: function (req, res) {
   //     const userData = db.User.findOne({ email: req.body.email })
   //     if (!userData) {
@@ -72,20 +70,48 @@ module.exports = {
   //     .catch(err => res.status(422).json(err))
   // },
 
-
+//========================LOGIN ROUTE WORKS==========NEED TO DO A PASSWORD VALIDATION============================
+//===============================================================================================================
   findOne: async function (req, res) {
 
     try {
-      const userData = await db.User.findOne({ email: req.body.email })
-      console.log("******")
+      // let userData = await db.User.findOne({ email: req.body.email })
+      // console.log("******1")
+      // console.log(userData)
+
+      // if (!userData) {
+      //   res.status(500).json({ message: 'Incorrect Email or Password, please try again----' });
+      //   return;
+      // }
+
+
+      userData = await db.User.findOne({email: req.body.email, password: req.body.password })
+      console.log("******2")
       console.log(userData)
+
       if (!userData) {
-        res.status(400).json({ message: 'Incorrect Email or Password, please try again----' });
+        res.status(500).json({ message: 'Incorrect Email or Password, please try again----' });
         return;
       }
 
-      // const validPass = await userData.checkPassword(req.body.password);
-      // console.log("-------")
+
+
+      // await userData.checkPassword(req.body.password, function(err, same) {
+      //   if (err) {
+      //     res.status(500)
+      //       .json({
+      //       error: 'Internal error please try again'
+      //     });
+
+      //   } else if (!same) {
+      //     res.status(401)
+      //       .json({
+      //       error: 'Incorrect email or password'
+      //     });
+      //   }
+      // });
+
+      console.log("-------")
       // console.log(validPass)
       // if (!validPass) {
       //   res.status(400).json({ message: 'Incorrect Email or Password, please try again' });
@@ -119,9 +145,11 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // }
 
-  //*****************************************START OF SENTIMENT ANALYSIS API CALL************************************
-  //***************************************************************************************************************** 
+  //*****************************START OF SENTIMENT ANALYSIS API CALL ROUTE***********************************
+  //********************************************************************************************************** 
 
+//=============================================ROUTE WORKS====================================================
+//============================================================================================================
   // Get Tweets
   getTwits: function (req, res) {
     console.log("------***")
@@ -189,8 +217,8 @@ module.exports = {
             };
           };
           console.log("******data")
-          console.log(data); // <=== Data to deliver here!
-          res.json(data)
+          console.log(data); 
+          res.json(data)// <=== Data to deliver here!
         })
         
         .catch(err => {
