@@ -90,7 +90,7 @@ module.exports = {
       console.log(userData)
 
       if (!userData) {
-        res.status(500).json({ message: 'Incorrect Email or Password, please try again----' });
+        res.status(500).json({ message: 'Incorrect Email or Password, please try again!' });
         return;
       }
 
