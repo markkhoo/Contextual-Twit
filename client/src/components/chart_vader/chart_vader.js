@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
 
-function Chart_Vader(props) {
+function Chart_Vader() {
     const [getTest, setTest] = useState([
         {
             id: 8,
@@ -12,7 +12,7 @@ function Chart_Vader(props) {
             followers_count: 1372,
             user_verified: false,
             is_quote_status: false,
-            retweet_count: 348,
+            retweet_count: 34800,
             favorite_count: 0,
             hashtags: [],
             lang: 'en',
@@ -34,17 +34,17 @@ function Chart_Vader(props) {
             lang: 'en',
             text: 'RT @ValorLeaks: How to redeem the Duality Player Card 101 | #VALORANT https://t.co/wTWsj4mRji',
             watson_tones: [],
-            vader_intensity: { neg: 0, neu: 1, pos: 0, compound: 0 }
+            vader_intensity: { neg: -1, neu: 0, pos: 0, compound: -1 }
         }
     ]);
-
+    // CHANGE THIS TO USE CONTEXT
     useEffect(() => {
         const holder = [];
         getTest.map((x) => {
             holder.push({
                 x: new Date(Date.parse(x.created_at)),
                 y: x.vader_intensity.compound,
-                r: Math.log10(x.retweet_count) * 1
+                r: Math.log10(x.retweet_count) * 10
             });
         });
         setTest(holder);
