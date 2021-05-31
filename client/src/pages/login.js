@@ -11,28 +11,28 @@ function Login() {
 
         <div>
             <Header />
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 m4 l2">
-                    <div class="signin">
+            <div className="container">
+                <div className="row">
+                    <div className="col s12 ">
+                    <div className="signin">
                         <h3>Sign In</h3>
-                        <div class="row">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Placeholder" id="first_name" type="text" class="validate" />
+                        <div className="row">
+                            <form className="col s12">
+                                <div className="row">
+                                    <div className="input-field col s6">
+                                        <input placeholder="Placeholder" id="first_name" type="text" className="validate" />
                                         <label for="first_name">Username:</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate" />
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="email" type="email" className="validate" />
                                         <label for="email">Email</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="password" type="password" class="validate" />
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="password" type="password" className="validate" />
                                         <label for="password">Password</label>
                                     </div>
                                 </div>
@@ -40,26 +40,26 @@ function Login() {
                         </div>
                     </div>
                     </div>
-                    <div class="col s12 m4 l2">
-                    <div class="register">
+                    <div className="col s12 ">
+                    <div className="register">
                         <h3>Register</h3>
-                        <div class="row">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Placeholder" id="first_name" type="text" class="validate" />
+                        <div className="row">
+                            <form className="col s12">
+                                <div className="row">
+                                    <div className="input-field col s6">
+                                        <input placeholder="Placeholder" id="first_name" type="text" className="validate" />
                                         <label for="first_name">Username:</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate" />
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="email" type="email" className="validate" />
                                         <label for="email">Email</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="password" type="password" class="validate" />
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <input id="password" type="password" className="validate" />
                                         <label for="password">Password</label>
                                     </div>
                                 </div>
