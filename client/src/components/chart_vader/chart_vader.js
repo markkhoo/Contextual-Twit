@@ -3,13 +3,52 @@ import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
 
 function Chart_Vader(props) {
-    const [getData, setData] = useState({});
-    const [getTest, setTest] = useState(0);
+    const [getTest, setTest] = useState([
+        {
+            id: 8,
+            created_at: 'Sun May 30 23:55:22 +0000 2021',
+            id_str: '1399152484736667649',
+            screen_name: 'hnsjhn_',
+            followers_count: 1372,
+            user_verified: false,
+            is_quote_status: false,
+            retweet_count: 348,
+            favorite_count: 0,
+            hashtags: [],
+            lang: 'en',
+            text: 'RT @cynprel: ��Duality Cinematic Breakdown��  Earlier this week, Riot gave me the amazing opportunity to preview the new cinematic and ask…',
+            watson_tones: [],
+            vader_intensity: { neg: 0.128, neu: 0.638, pos: 0.234, compound: 0.4588 }
+        },
+        {
+            id: 9,
+            created_at: 'Sun May 30 23:55:21 +0000 2021',
+            id_str: '1399152483205664769',
+            screen_name: 'Krw1r',
+            followers_count: 26,
+            user_verified: false,
+            is_quote_status: false,
+            retweet_count: 122,
+            favorite_count: 0,
+            hashtags: [],
+            lang: 'en',
+            text: 'RT @ValorLeaks: How to redeem the Duality Player Card 101 | #VALORANT https://t.co/wTWsj4mRji',
+            watson_tones: [],
+            vader_intensity: { neg: 0, neu: 1, pos: 0, compound: 0 }
+        }
+    ]);
 
     useEffect(() => {
-        setTest( Date.parse('Sun May 30 00:54:20 +0000 2021' )); // nonstandard date string
-        console.log(getTest);
-    }, [getTest]);
+        const holder = [];
+        getTest.map((x) => {
+            holder.push({
+                x: new Date(Date.parse(x.created_at)),
+                y: x.vader_intensity.compound,
+                r: Math.log10(x.retweet_count) * 1
+            });
+        });
+        setTest(holder);
+    }, []);
 
     return (
         <div>
@@ -18,15 +57,7 @@ function Chart_Vader(props) {
                 data={{
                     datasets: [{
                         label: 'First Dataset',
-                        data: [{
-                            x: Date.parse('Sun May 30 00:54:20 +0000 2021'),
-                            y: -0.75,
-                            r: 15
-                        }, {
-                            x: Date.parse('Sun May 30 00:53:16 +0000 2021'),
-                            y: .9,
-                            r: 10
-                        }],
+                        data: getTest,
                         backgroundColor: 'rgb(255, 99, 132)'
                     }]
                 }}
@@ -38,11 +69,11 @@ function Chart_Vader(props) {
                         xAxes: [
                             {
                                 type: 'time',
-                                time: {
-                                    displayFormats: {
-                                        quarter: 'MMM YYYY'
-                                    }
-                                }
+                                // time: {
+                                //     displayFormats: {
+                                //         second: 'h:mm:ss a'
+                                //     }
+                                // }
                             }
                         ],
                         yAxes: [
