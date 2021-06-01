@@ -154,7 +154,7 @@ module.exports = {
   getTwits: function (req, res) {
     console.log("------***")
     console.log(req)
-    client.get('search/tweets', { q: req.body.twit, lang: 'en', count: 10 }, function (error, tweets, response) {
+    client.get('search/tweets', { q: `${req.body.twit}`, lang: 'en', count: 10 }, function (error, tweets, response) {
 
       const data = [];
       const toneChatParams = { utterances: [] };
