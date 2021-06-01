@@ -29,7 +29,7 @@ function Home() {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Search Twitter"
+                    placeholder="#SearchTwitter"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                     onChange={handleSetInput}
