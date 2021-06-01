@@ -5,30 +5,34 @@ const axios = require('axios')
 
 
 function Login() {
+    
     const [account1, setAccount1] = useState("");
     const [account2, setAccount2] = useState("");
     const [account3, setAccount3] = useState("");
 
-
-
 function handleSetInput1(event){
     setAccount1(event.target.value)
+    console.log(account1)
 
 }
 
 function handleSetInput2(event){
     setAccount2(event.target.value)
+    console.log(account2)
+
 
 }
 function handleSetInput3(event){
     setAccount3(event.target.value)
+    console.log(account3)
 
 }
 
 
-function handleRegisterSubmit (event){
-    console.log(event)
-    axios.post("/register",{
+const handleRegisterSubmit =(event)=>{
+    event.preventDefault()
+    console.log("hello")
+    axios.post("/api/register",{
         username: account1,
         email: account2,
         password: account3
@@ -36,6 +40,12 @@ function handleRegisterSubmit (event){
     .then(function (response){
         console.log(response)
     })
+
+}
+
+
+function handleLogin(){
+
 }
 
     return (
@@ -75,7 +85,7 @@ function handleRegisterSubmit (event){
                     <div className="register">
                         <h3>Register</h3>
                         <div className="row">
-                            <form className="col s12"  onSubmit={handleRegisterSubmit}>
+                            <form className="col s12">
                                 <div className="row">
                                     <div className="input-field col s6">
                                         <input onChange={handleSetInput1} placeholder="Placeholder"  id="first_name" type="text" className="validate" />
@@ -94,7 +104,7 @@ function handleRegisterSubmit (event){
                                         <label for="password">Password</label>
                                     </div>
                                 </div>
-                                <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <button onClick={handleRegisterSubmit} className="btn waves-effect waves-light" type="submit" name="action">Submit
                                             <i className="material-icons right">send</i>
                                         </button>
                             </form>
