@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const  twitterRoutes = require("./API");
+const  apiRoutes = require("./API");
 
 // Post routes
-router.use("/", twitterRoutes);
+router.use("/api", apiRoutes);
 
 module.exports = router;

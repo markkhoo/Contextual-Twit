@@ -1,18 +1,31 @@
+
+import React from "react";
+import Chart_Vader from "./components/chart_vader/chart_vader";
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Login from "./pages/login";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+  <>  
+      <div className="App">
+
+        <div className="App-header">
+        
+          <Chart_Vader />
+      <Router>
+        <div>
+        
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/login" component={Login} />
+        </div>
+      </Router>
     </div>
+</>
   );
 }
 
