@@ -4,7 +4,7 @@ const postController = require("../controllers/postController");
 //=============================================THIS ROUTE WORKS----TWITTER, WATSON, AND VADER API's ROUTES==============================================================
 router
     .route("/analysis")
-    .get(postController.getTwits)
+    .post(postController.getTwits)
 
 //=============================================THIS ROUTE WORKS-----FIND ALL USERS---WE NEED TO DEACTIVATE THIS ROUTE----FOR TESTING PURPOSES ONLY======================
 router
