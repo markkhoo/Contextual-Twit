@@ -1,6 +1,6 @@
 const db = require("../models");
-const axios = require('axios');
-const router = require('express').Router();
+// const axios = require('axios');
+// const router = require('express').Router();
 require('dotenv').config();
 const Twitter = require('twitter');
 const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
@@ -18,7 +18,7 @@ const toneAnalyzer = new ToneAnalyzerV3({
   version: '2017-09-21',
   serviceUrl: 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com'
 });
-const searchQuery = 'valorant';
+
 
 
 
@@ -152,9 +152,8 @@ module.exports = {
 //============================================================================================================
   // Get Tweets
   getTwits: function (req, res) {
-    console.log("------***")
-    console.log(req)
-    client.get('search/tweets', { q: `${req.body.twit}`, lang: 'en', count: 10 }, function (error, tweets, response) {
+    console.log(req.body);
+    client.get('search/tweets', { q: `${req.body.thekey}`, lang: 'en', count: 50 }, function (error, tweets, response) {
 
       const data = [];
       const toneChatParams = { utterances: [] };
@@ -216,8 +215,8 @@ module.exports = {
               });
             };
           };
-          console.log("******data")
-          console.log(data); 
+
+          // console.log(data); 
           res.json(data)// <=== Data to deliver here!
         })
         
