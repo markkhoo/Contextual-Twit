@@ -1,9 +1,4 @@
 const router = require("express").Router();
-<<<<<<< HEAD
-const postController = require("../../controllers/postController");
-
-// Matches with "/api/books"
-=======
 const postController = require("../controllers/postController");
 
 //=============================================THIS ROUTE WORKS----TWITTER, WATSON, AND VADER API's ROUTES==============================================================
@@ -12,7 +7,6 @@ router
     .post(postController.getTwits)
 
 //=============================================THIS ROUTE WORKS-----FIND ALL USERS---WE NEED TO DEACTIVATE THIS ROUTE----FOR TESTING PURPOSES ONLY======================
->>>>>>> 66c46769d9f6092a7f406c45e1f1746f938f9a57
 router
     .route("/")
     .get(postController.findAll);

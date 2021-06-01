@@ -23,34 +23,6 @@ const searchQuery = 'valorant';
 
 
 module.exports = {
-<<<<<<< HEAD
-    findAll: function(req, res) {
-      db.User.find(req.query)
-        // .sort({ _id: -1 })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    findById: function(req, res) {
-      db.User.findById(req.params.id)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    create: function(req, res) {
-      db.User.create(req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    update: function(req, res) {
-      db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    remove: function(req, res) {
-      db.User.findById({ _id: req.params.id })
-        .then(dbModel => dbModel.remove())
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-=======
   //==========================ROUTE WORKS-GETS ALL USERS*****************WE NEED TO REMOVE THIS ROUTE LATER, DON'T WANT USER INFO BEING PULLED***********************
   findAll: function (req, res) {
     db.User.find(req.query)
@@ -157,7 +129,6 @@ module.exports = {
     } catch (err) {
       console.log(err)
       res.status(400).json(err);
->>>>>>> 66c46769d9f6092a7f406c45e1f1746f938f9a57
     }
   },
 
