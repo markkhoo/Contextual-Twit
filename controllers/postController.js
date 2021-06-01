@@ -18,7 +18,7 @@ const toneAnalyzer = new ToneAnalyzerV3({
   version: '2017-09-21',
   serviceUrl: 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com'
 });
-const searchQuery = 'valorant';
+
 
 
 

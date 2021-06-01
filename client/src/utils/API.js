@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = {
     searchTwit: (query) => {
-        return axios.post(`/api/analysis/${query}`)
+        return axios.get(`/api/analysis/${query}`)
     }
 };
 
