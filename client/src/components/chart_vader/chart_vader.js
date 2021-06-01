@@ -4,11 +4,11 @@ import './chart_vader.css';
 
 function Chart_Vader(props) {
     const [getDat1, setDat1] = useState([]);
-    const [getTest, setTest] = useState([]);
+    const [getSet1, setSet1] = useState([]);
 
     useEffect(() => {
         const holder = [];
-        getTest.map((x) => {
+        getSet1.map((x) => {
             holder.push({
                 x: new Date(Date.parse(x.created_at)),
                 y: x.vader_intensity.compound,
@@ -16,21 +16,22 @@ function Chart_Vader(props) {
             });
         });
         setDat1(holder);
-    }, [getTest]);
+    }, [getSet1]);
 
     useEffect(() => {
-        setTest(props.data);
+        setSet1(props.data);
     },[props]);
 
     return (
-        <div>
-            <h1>Chart 1</h1>
+        <div className='vaderChart'>
+            <h2>Polarity Score</h2>
             <Bubble
                 data={{
                     datasets: [{
                         label: 'First Dataset',
                         data: getDat1,
-                        backgroundColor: 'rgb(255, 99, 132)'
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderWidth: 3
                     }]
                 }}
                 height={400}
