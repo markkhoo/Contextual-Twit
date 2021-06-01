@@ -15,7 +15,7 @@ router
 
 //=============================================THIS ROUTE WORKS----REGISTER NEW USER===================================================================================
 router
-    .route("/") 
+    .route("/register") 
     .post(postController.create);
 
 
