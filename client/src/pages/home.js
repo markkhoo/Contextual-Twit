@@ -1,11 +1,10 @@
 import Header from "../components/Header";
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Chart_Vader from "../components/chart_vader/chart_vader";
 import API from "../utils/API"
 
 function Home() {
 
-    //const [search, setSearch] = useState("");
     const [input, setInput] = useState("");
     const [twit, setTwit] = useState([]);
     
@@ -30,13 +29,13 @@ function Home() {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Search for books"
+                    placeholder="Search Twitter"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                     onChange={handleSetInput}
                 />
                 <div className="input-group-append">
-                    <button onClick={handleTwitSearch} className="btn btn-outline-secondary" type="button" id="button-addon2">Search For Books</button>
+                    <button onClick={handleTwitSearch} className="btn btn-outline-secondary" type="button" id="button-addon2">Search Twitter</button>
                 </div>
             </div>
             <Chart_Vader />
