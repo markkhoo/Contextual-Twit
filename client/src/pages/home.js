@@ -60,8 +60,7 @@ const LoadingIndicator = props => {
             setIsLoading(false)
             setData(res.data)
         })
-        )    
-    
+        )      
 };
 
     return (
