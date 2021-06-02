@@ -1,5 +1,5 @@
 module.exports = {
-    User: require("./user"),
-    Tag: require("./tag")
+    User: require("./users"),
+    Tag: require("./tags")
 
 };
