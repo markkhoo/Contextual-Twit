@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { MenuContext } from 'react-flexible-sliding-menu';
 import "./Header.css";
 
 function Header(props) {
+    const { toggleMenu } = useContext(MenuContext);
     return (
         <div>
             <div className="jumbotron jumbotron-fluid text-center">
@@ -15,8 +17,10 @@ function Header(props) {
             <nav>
 
                 <div className="nav-wrapper">
-
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                    <div class="hamburger-box" onClick={toggleMenu}>
+                        <div class="hamburger-inner"></div>
+                    </div>
+                    {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                     <ul className="right hide-on-med-and-down">
                         <li>
                         <Link
