@@ -22,7 +22,6 @@ function handleSetInput2(event){
     setAccount2(event.target.value)
     console.log(account2)
 
-
 }
 function handleSetInput3(event){
     setAccount3(event.target.value)
