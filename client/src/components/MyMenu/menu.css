@@ -1,3 +1,11 @@
-.menu .buttonClose {
-    
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.menu ul {
+    margin-left: 10px;
+}
+
+.menu ul li a {
+    font-size: 25px;
+    font-family: 'Bebas Neue', cursive;
+    color: #000;
 }
