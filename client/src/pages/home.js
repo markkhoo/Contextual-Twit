@@ -47,7 +47,7 @@ function Home() {
                     id="button-addon2"
                 />
             </form>
-            <Chart_Vader />
+            <Chart_Vader data={getData}/>
         </div>
     )
 };
