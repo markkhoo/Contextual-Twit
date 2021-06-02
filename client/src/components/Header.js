@@ -1,21 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
-//import "./Header.css";
+import { MenuContext } from 'react-flexible-sliding-menu';
+import "./Header.css";
 
 function Header(props) {
+    const { toggleMenu } = useContext(MenuContext);
     return (
         <div>
             <div className="jumbotron jumbotron-fluid text-center">
                 <div className="container">
-                    <h1 className="display-4">Welcome to Contextual Twit</h1>
+                    {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
+                    <img src="logo2.png" alt="logo" />
                     <p className="lead">Search twitter and let us analyze its meaning!!</p>
                 </div>
             </div>
             <nav>
 
                 <div className="nav-wrapper">
-
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                    <div class="hamburger-box" onClick={toggleMenu}>
+                        <div class="hamburger-inner"></div>
+                    </div>
+                    {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                     <ul className="right hide-on-med-and-down">
                         <li>
                         <Link
