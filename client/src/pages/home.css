@@ -1,3 +1,9 @@
-.searchAndSubmit .form-control {
-    width: 50%;
-} 
+.row {
+    justify-content: center;
+}
+
+.row .col {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
