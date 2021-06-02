@@ -9,6 +9,8 @@
     "react-chartjs-2": "^3.0.3",
     "react-dom": "^16.13.1",
     "react-flexible-sliding-menu": "^0.1.9",
+    "react-loader-spinner": "^4.0.0",
+    "react-promise-tracker": "^2.1.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
