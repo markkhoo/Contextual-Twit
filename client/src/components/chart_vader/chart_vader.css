@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.chart h1 {
+.vaderchart h1 {
     align-items: center;
     text-align: center;
     font-family: 'Bebas Neue', cursive;
 }
 
-.chart .bubble {
+.vaderchart .bubble {
     width: 1000px;
-    
+}
+
+.vaderChart {
+    max-width: 1000px;
 }

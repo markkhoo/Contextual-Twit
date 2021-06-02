@@ -31,9 +31,13 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "i": "^0.3.6",
     "ibm-watson": "^6.0.4",
+    "moment": "^2.29.1",
     "mongoose": "^5.12.11",
     "react-dom": "^17.0.2",
+    "react-loader-spinner": "^4.0.0",
+    "react-promise-tracker": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "twitter": "^1.7.1",
     "vader-sentiment": "^1.1.3"
