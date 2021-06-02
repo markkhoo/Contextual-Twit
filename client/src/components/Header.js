@@ -8,7 +8,7 @@ function Header(props) {
             <div className="jumbotron jumbotron-fluid text-center">
                 <div className="container">
                     {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
-                    <img src="logo3.png" alt="logo" />
+                    <img src="logo2.png" alt="logo" />
                     <p className="lead">Search twitter and let us analyze its meaning!!</p>
                 </div>
             </div>

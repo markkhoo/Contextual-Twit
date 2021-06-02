@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .container img {
-    width: 100%;
+    width: 75%;
 }
 
 .container p {
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Bebas Neue', cursive;
 }
 
