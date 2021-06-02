@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.container img {
+    width: 75%;
+}
+
+.container p {
+    font-size: 25px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.nav-wrapper {
+    background-color: #000;
+}
+
+.nav-wrapper ul {
+    text-align: center;
+}
+
+.nav-wrapper ul li a {
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hamburger-box {
+    display: block;
+    width: 40px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 18px;
+    z-index: 9;
+}
+
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.hamburger-inner:after, .hamburger-inner:before {
+    display: block;
+    content: "";
+}
+
+.hamburger-inner:after {
+    bottom: -10px;
+}
+
+.hamburger-inner:before {
+    top: -10px;
+}

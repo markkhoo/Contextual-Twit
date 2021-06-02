@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const axios = require('axios')
 
 
+import "./login.css";
 
 function Login() {
     //register user

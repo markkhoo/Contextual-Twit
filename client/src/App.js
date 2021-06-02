@@ -1,20 +1,19 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+import { Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./pages/login";
 
-
-
-function App() {
+const App = () => {
   return (
     <div>
-      <Router>
+      {/* <Router> */}
         <div>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
         </div>
-      </Router>
+      {/* </Router> */}
     </div>
 
   );
