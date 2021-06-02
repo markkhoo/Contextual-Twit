@@ -2,53 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
 
-function Chart_Vader() {
-    const [getTest, setTest] = useState([
-        {
-            id: 8,
-            created_at: 'Sun May 30 23:55:22 +0000 2021',
-            id_str: '1399152484736667649',
-            screen_name: 'hnsjhn_',
-            followers_count: 1372,
-            user_verified: false,
-            is_quote_status: false,
-            retweet_count: 34800,
-            favorite_count: 0,
-            hashtags: [],
-            lang: 'en',
-            text: 'RT @cynprel: ��Duality Cinematic Breakdown��  Earlier this week, Riot gave me the amazing opportunity to preview the new cinematic and ask…',
-            watson_tones: [],
-            vader_intensity: { neg: 0.128, neu: 0.638, pos: 0.234, compound: 0.4588 }
-        },
-        {
-            id: 9,
-            created_at: 'Sun May 30 23:55:21 +0000 2021',
-            id_str: '1399152483205664769',
-            screen_name: 'Krw1r',
-            followers_count: 26,
-            user_verified: false,
-            is_quote_status: false,
-            retweet_count: 122,
-            favorite_count: 0,
-            hashtags: [],
-            lang: 'en',
-            text: 'RT @ValorLeaks: How to redeem the Duality Player Card 101 | #VALORANT https://t.co/wTWsj4mRji',
-            watson_tones: [],
-            vader_intensity: { neg: -1, neu: 0, pos: 0, compound: -1 }
-        }
-    ]);
-    // CHANGE THIS TO USE CONTEXT
+function Chart_Vader(props) {
+    const [getDat1, setDat1] = useState([]);
+    const [getSet1, setSet1] = useState([]);
+
     useEffect(() => {
         const holder = [];
-        getTest.map((x) => {
+        getSet1.map((x) => {
             holder.push({
                 x: new Date(Date.parse(x.created_at)),
                 y: x.vader_intensity.compound,
-                r: Math.log10(x.retweet_count) * 10
+                r: Math.max(Math.log10(x.retweet_count) * 10 , 3)
             });
         });
-        setTest(holder);
-    }, []);
+        setDat1(holder);
+    }, [getSet1]);
+
+    useEffect(() => {
+        setSet1(props.data);
+    },[props]);
 
     return (
         <div className="chart">
@@ -75,6 +47,7 @@ function Chart_Vader() {
                                     //         second: 'h:mm:ss a'
                                     //     }
                                     // }
+
                                 }
                             ],
                             yAxes: [
