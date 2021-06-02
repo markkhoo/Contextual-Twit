@@ -1,9 +1,10 @@
 import Header from "../components/Header";
 import React, { useState } from "react";
+import "./login.css";
+
 const axios = require('axios')
 
 
-import "./login.css";
 
 function Login() {
     //register user
