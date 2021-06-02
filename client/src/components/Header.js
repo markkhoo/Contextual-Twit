@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import { Link } from "react-router-dom";
-import { MenuContext } from 'react-flexible-sliding-menu';
+// import { MenuContext } from 'react-flexible-sliding-menu';
 import "./Header.css";
 
 function Header(props) {
-    const { toggleMenu } = useContext(MenuContext);
+    // const { toggleMenu } = useContext(MenuContext);
     return (
         <div>
             <div className="jumbotron jumbotron-fluid text-center">
@@ -14,12 +14,22 @@ function Header(props) {
                     <p className="lead">Search twitter and let us analyze its meaning!!</p>
                 </div>
             </div>
+            <form autocomplete="off">
+                <div class="finder">
+                <div class="finder__outer">
+                    <div class="finder__inner">
+                    <div class="finder__icon" ref="icon"></div>
+                    <input class="finder__input" type="text" name="q" />
+                    </div>
+                </div>
+                </div>
+            </form>
             <nav>
 
                 <div className="nav-wrapper">
-                    <div class="hamburger-box" onClick={toggleMenu}>
+                    {/* <div class="hamburger-box" onClick={toggleMenu}>
                         <div class="hamburger-inner"></div>
-                    </div>
+                    </div> */}
                     {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                     <ul className="right hide-on-med-and-down">
                         <li>

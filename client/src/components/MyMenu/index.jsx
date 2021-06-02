@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import { MenuContext } from 'react-flexible-sliding-menu';
+import "./menu.css";
 
 const MenuIndex = () => {
     const { toggleMenu } = useContext(MenuContext);
