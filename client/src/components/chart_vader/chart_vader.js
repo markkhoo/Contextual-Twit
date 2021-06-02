@@ -42,11 +42,11 @@ function Chart_Vader(props) {
                         xAxes: [
                             {
                                 type: 'time',
-                                // time: {
-                                //     displayFormats: {
-                                //         second: 'h:mm:ss a'
-                                //     }
-                                // }
+                                time: {
+                                    displayFormats: {
+                                        quarter: 'MMM YYYY'
+                                    }
+                                }
                             }
                         ],
                         yAxes: [
@@ -62,6 +62,6 @@ function Chart_Vader(props) {
             />
         </div>
     )
-}
+};
 
 export default Chart_Vader;
