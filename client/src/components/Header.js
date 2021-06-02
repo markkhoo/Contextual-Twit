@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import "./Header.css";
+import "./Header.css";
 
 function Header(props) {
     return (
         <div>
             <div className="jumbotron jumbotron-fluid text-center">
                 <div className="container">
-                    <h1 className="display-4">Welcome to Contextual Twit</h1>
+                    {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
+                    <img src="logo3.png" alt="logo" />
                     <p className="lead">Search twitter and let us analyze its meaning!!</p>
                 </div>
             </div>

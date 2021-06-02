@@ -53,40 +53,42 @@ function Chart_Vader() {
     return (
         <div>
             <h1>Chart 1</h1>
-            <Bubble
-                data={{
-                    datasets: [{
-                        label: 'First Dataset',
-                        data: getTest,
-                        backgroundColor: 'rgb(255, 99, 132)'
-                    }]
-                }}
-                height={400}
-                width={600}
-                options={{
-                    maintainAspectRatio: true,
-                    scales: {
-                        xAxes: [
-                            {
-                                type: 'time',
-                                // time: {
-                                //     displayFormats: {
-                                //         second: 'h:mm:ss a'
-                                //     }
-                                // }
-                            }
-                        ],
-                        yAxes: [
-                            {
-                                ticks: {
-                                    min: -1,
-                                    max: 1
+            <div className="bubble">
+                <Bubble
+                    data={{
+                        datasets: [{
+                            label: 'First Dataset',
+                            data: getTest,
+                            backgroundColor: 'rgb(255, 99, 132)'
+                        }]
+                    }}
+                    height={400}
+                    width={600}
+                    options={{
+                        maintainAspectRatio: true,
+                        scales: {
+                            xAxes: [
+                                {
+                                    type: 'time',
+                                    // time: {
+                                    //     displayFormats: {
+                                    //         second: 'h:mm:ss a'
+                                    //     }
+                                    // }
                                 }
-                            }
-                        ]
-                    }
-                }}
-            />
+                            ],
+                            yAxes: [
+                                {
+                                    ticks: {
+                                        min: -1,
+                                        max: 1
+                                    }
+                                }
+                            ]
+                        }
+                    }}
+                />
+            </div>
         </div>
     )
 }
