@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import React, { useState } from "react";
-
+import "./login.css";
 
 function Login() {
     //const [search, setSearch] = useState("");
@@ -20,8 +20,8 @@ function Login() {
                             <form className="col s12">
                                 <div className="row">
                                     <div className="input-field col s6">
-                                        <input placeholder="Placeholder" id="first_name" type="text" className="validate" />
-                                        <label for="first_name">Username:</label>
+                                        <input placeholder="" id="first_name" type="text" className="validate" />
+                                        <label for="first_name">Username</label>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -47,8 +47,8 @@ function Login() {
                             <form className="col s12">
                                 <div className="row">
                                     <div className="input-field col s6">
-                                        <input placeholder="Placeholder" id="first_name" type="text" className="validate" />
-                                        <label for="first_name">Username:</label>
+                                        <input placeholder="" id="first_name" type="text" className="validate" />
+                                        <label for="first_name">Username</label>
                                     </div>
                                 </div>
                                 <div className="row">

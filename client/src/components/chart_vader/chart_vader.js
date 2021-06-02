@@ -51,7 +51,7 @@ function Chart_Vader() {
     }, []);
 
     return (
-        <div>
+        <div className="chart">
             <h1>Chart 1</h1>
             <div className="bubble">
                 <Bubble

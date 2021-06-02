@@ -13,9 +13,14 @@
     background-color: #000;
 }
 
+.nav-wrapper ul {
+    text-align: center;
+}
+
 .nav-wrapper ul li a {
     color: #fff;
     font-family: 'Bebas Neue', cursive;
-    font-size: 25px;
+    font-size: 22px;
     text-align: center;
+    overflow: hidden;
 }
