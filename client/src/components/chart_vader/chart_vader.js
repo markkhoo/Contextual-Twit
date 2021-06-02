@@ -30,7 +30,7 @@ function Chart_Vader(props) {
                     data={{
                         datasets: [{
                             label: 'First Dataset',
-                            data: getTest,
+                            data: getDat1,
                             backgroundColor: 'rgb(255, 99, 132)'
                         }]
                     }}
