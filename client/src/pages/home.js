@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import Chart_Vader from "../components/chart_vader/chart_vader";
 import API from "../utils/API"
 
+//loading
+import { trackPromise } from "react-promise-tracker";
+//loading
+
 function Home() {
 
     const [getinput, setInput] = useState({});
@@ -16,12 +20,16 @@ function Home() {
         setInput({ thekey: event.target.value });
     };
 
+    //loading
+    
+    //loading
     const handleSubmit = (event) => {
         event.preventDefault();
+        trackPromise(//loading----TRACKS THE PROMISE
         API.searchTwit(getinput).then((res) => {
-            setData(res.data)
-        });
-    };
+            setData(res.data);
+        //});
+    }))};
 
     return (
         <div>
