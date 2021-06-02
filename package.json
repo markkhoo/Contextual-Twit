@@ -35,9 +35,11 @@
     "ibm-watson": "^6.0.4",
     "moment": "^2.29.1",
     "mongoose": "^5.12.11",
+    "react-burger-menu": "^3.0.6",
     "react-dom": "^17.0.2",
     "react-loader-spinner": "^4.0.0",
     "react-promise-tracker": "^2.1.0",
+    "react-flexible-sliding-menu": "^0.1.9",
     "react-router-dom": "^5.2.0",
     "twitter": "^1.7.1",
     "vader-sentiment": "^1.1.3"

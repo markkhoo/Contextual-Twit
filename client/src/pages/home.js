@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
 import Chart_Vader from "../components/chart_vader/chart_vader";
 import API from "../utils/API";
-
+import "./home.css";
 
 //loading
 import { trackPromise } from "react-promise-tracker";
@@ -78,7 +78,7 @@ function Home() {
     };
 
     return (
-        <div>
+        <div className="searchAndSubmit">
             <Header />
 
             <form
