@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
+import moment from 'moment';
+
+//loading
+import { trackPromise } from "react-promise-tracker";
+import { render } from "react-dom";
+import { usePromiseTracker } from "react-promise-tracker";
+import Loader from "react-loader-spinner";
+//loading
 
 function Chart_Vader(props) {
     const [getDat1, setDat1] = useState([]);
@@ -16,15 +24,38 @@ function Chart_Vader(props) {
             });
         });
         setDat1(holder);
+        console.log("****--")
+        console.log(getDat1)
     }, [getSet1]);
 
     useEffect(() => {
         setSet1(props.data);
     },[props]);
 
+    //loading
+    //  const LoadingIndicator = props => {
+    //     const {promiseInProgress} = usePromiseTracker();
+    //     return (
+            
+    //         promiseInProgress &&
+    //     <div>
+    //         <h5>Hey some async call in progress ! </h5>
+    //             <Loader
+    //                 type="Bars"
+    //                 color="#10BFFF"
+    //                 height={100}
+    //                 width={100}
+    //                 timeout={5000} //3 secs
+    //             />
+    //     </div>        
+    //     );  
+    //     }
+    //loading
+
     return (
         <div className='vaderChart'>
             <h2>Polarity Score</h2>
+            
             <Bubble
                 data={{
                     datasets: [{
@@ -42,12 +73,13 @@ function Chart_Vader(props) {
                         xAxes: [
                             {
                                 type: 'time',
-                                // time: {
-                                //     displayFormats: {
-                                //         second: 'h:mm:ss a'
-                                //     }
-                                // }
+                                time: {
+                                    displayFormats: {
+                                        second: 'h:mm:ss a'
+                                    }
+                                }
                             }
+
                         ],
                         yAxes: [
                             {
@@ -60,6 +92,8 @@ function Chart_Vader(props) {
                     }
                 }}
             />
+                
+
         </div>
     )
 }
