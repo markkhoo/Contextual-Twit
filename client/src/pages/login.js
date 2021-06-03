@@ -1,6 +1,9 @@
 import Header from "../components/Header";
 import React, { useState } from "react";
 import "./login.css";
+import { Redirect } from "react-router-dom";
+
+
 
 const axios = require('axios')
 
@@ -30,7 +33,7 @@ function handleSetInput3(event){
 }
 
 const handleRegisterSubmit = (event)=>{
-    event.preventDefault()
+    // event.preventDefault()
     console.log("hello")
     axios.post("/api/register",{
         username: account1,
@@ -81,7 +84,11 @@ function handleLogin(event){
     .then(function (response){
         console.log(response)
         if (response.ok) {
-            document.location.replace('/');
+            // document.location.replace('/');
+            // <Redirect to="/" />
+            // this.props.history.push('/')
+
+
           }
     })
     console.log(login1,login2,login3)
