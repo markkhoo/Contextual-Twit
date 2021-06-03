@@ -12,7 +12,7 @@ import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
 
-function Home() {
+function Home(props) {
 
     const [getinput, setInput] = useState({});
     const [getData, setData] = useState([]);
@@ -20,7 +20,10 @@ function Home() {
     
     useEffect(() => {
         console.log(getData);
-    }, [getData])
+        
+        console.log(props.location.state);
+
+    }, [])
 
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
@@ -54,6 +57,20 @@ function Home() {
         );
     }
 
+    
+    // function handleLogout (event) {
+    //     event.preventDefault()
+
+    //     axios.post("/api/logout")
+    //         .then(function (response) {
+    //             console.log(response)
+                
+    //         })
+    //     console.log(login1, login2, login3)
+    // }
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
         setIsLoading(true);
@@ -67,7 +84,7 @@ function Home() {
 
     return (
         <div className="searchAndSubmit">
-            <Header />
+            <Header  />
             <form
                 className="input-group mb-3"
                 onSubmit={handleSubmit}
