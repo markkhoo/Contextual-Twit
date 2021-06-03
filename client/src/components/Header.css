@@ -61,8 +61,15 @@
     top: -10px;
 }
 
+@media screen and (max-width: 989px) {
+    .hamburger-box {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .hamburger-box {
         display: block;
     }
 }
+
