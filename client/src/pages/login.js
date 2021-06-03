@@ -22,7 +22,10 @@ function handleSetInput2(event){
     setAccount2(event.target.value)
     console.log(account2)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c74623c14bb95c094488f0737bd653401a6e36b9
 }
 function handleSetInput3(event){
     setAccount3(event.target.value)
@@ -43,12 +46,57 @@ const handleRegisterSubmit = (event)=>{
     })
 
 }
+<<<<<<< HEAD
+=======
+
+//login user
+const [login1, setlogin1] = useState("");
+const [login2, setlogin2] = useState("");
+const [login3, setlogin3] = useState("");
+>>>>>>> c74623c14bb95c094488f0737bd653401a6e36b9
 
 //login user
 const [login1, setlogin1] = useState("");
 const [login2, setlogin2] = useState("");
 const [login3, setlogin3] = useState("");
 
+function handleSetLoginInput1(event){
+    setlogin1(event.target.value)
+    console.log(setlogin1)
+
+}
+
+
+function handleSetLoginInput2(event){
+    setlogin2(event.target.value)
+    console.log(setlogin2)
+
+}
+function handleSetLoginInput3(event){
+    setlogin3(event.target.value)
+    console.log(setlogin2)
+
+}
+
+
+function handleLogin(event){
+
+    event.preventDefault()
+
+
+    axios.post("/api/login",{
+        username: login1,
+        email: login2,
+        password: login3
+    })
+    .then(function (response){
+        console.log(response)
+        if (response.ok) {
+            document.location.replace('/');
+          }
+    })
+    console.log(login1,login2,login3)
+}
 
 function handleSetLoginInput1(event){
     setlogin1(event.target.value)
