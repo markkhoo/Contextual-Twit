@@ -30,25 +30,27 @@ const LoadingIndicator = props => {
     return (
 
         promiseInProgress &&
-    <div className="row">
-        <div class="col sm12">   
-            <Loader
-                type="Circles"
-                color="#f06292"
-                height={50}
-                width={50}
-                timeout={5000} //3 secs
-            />
-            <h4>&#x1F60a; Analysing your data</h4>
-            <Loader
-                type="Circles"
-                color="#f06292"
-                height={50}
-                width={50}
-                timeout={5000} //3 secs
-            />
-            </div> 
-    </div>        
+
+        <div className="wrapper">
+            <div class="loading">   
+                <Loader
+                    type="Circles"
+                    color="#f06292"
+                    height={50}
+                    width={50}
+                    timeout={5000} //3 secs
+                />
+                <h4>&#x1F60a; Analysing your data</h4>
+                <Loader
+                    type="Circles"
+                    color="#f06292"
+                    height={50}
+                    width={50}
+                    timeout={5000} //3 secs
+                />
+            </div>
+        </div> 
+            
     );  
     }
 

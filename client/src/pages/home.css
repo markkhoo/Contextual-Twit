@@ -1,8 +1,13 @@
-.row {
+.wrapper {
+    text-align: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 75px;
 }
 
-.row .col {
+.wrapper .loading {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
