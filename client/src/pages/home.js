@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Summary from "../components/summary/summary";
 import Chart_Vader from "../components/chart_vader/chart_vader";
 import Chart_Watson from "../components/chart_watson/chart_watson";
+import Data_Container from "../components/data_container/data_container";
 import API from "../utils/API"
 
 function Home() {
@@ -51,6 +52,7 @@ function Home() {
             <Summary data={getData}/>
             <Chart_Vader data={getData}/>
             <Chart_Watson data={getData}/>
+            <Data_Container data={getData}/>
         </div>
     )
 };

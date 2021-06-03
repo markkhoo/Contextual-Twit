@@ -1,0 +1,8 @@
+.tweet_table thead tr {
+    background-color: #282c34;
+    color: white;
+}
+
+.tweet_table tbody tr:nth-child(2n) {
+    background-color: #e9ecf0;
+}
