@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
 import Chart_Vader from "../components/chart_vader/chart_vader";
+import Chart_Watson from "../components/chart_watson/chart_watson";
 import API from "../utils/API"
 
 function Home() {
@@ -47,6 +48,7 @@ function Home() {
                 />
             </form>
             <Chart_Vader data={getData}/>
+            <Chart_Watson data={getData}/>
         </div>
     )
 };
