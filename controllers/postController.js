@@ -144,7 +144,7 @@ module.exports = {
   // }
 
   getTrending: function(req, res){
-    client.get('search/tweets', { q: 'lakers', lang: 'en', count: 5 })
+    client.get('search/tweets', { q: 'lakers', lang: 'en', count: 10 })
     .then(tweets => res.json(tweets)) 
     console.log("*******")
     console.log(res)
