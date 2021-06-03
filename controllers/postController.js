@@ -143,11 +143,24 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // }
 
-  getTrending: function(req, res){
-    client.get('search/tweets', { q: 'lakers', lang: 'en', count: 10 })
-    .then(tweets => res.json(tweets)) 
+  getTrending: function(req, response){
+    client.get('search/tweets', { q: 'trending', lang: 'en', count: 10 })
+    //.then(tweet => //response.json(tweet)) 
+    
+
+    .then(response => 
+      response.tweet.items.filter(
+        tweet =>
+          tweet.statuses.text && 
+          tweet.statuses.created_at &&
+          tweet.statuses.user.screen_name
+      ))
+    
+    .then(tweets => response.json(tweets)) 
+    .catch(err => response.status(500).json(err));
+    
     console.log("*******")
-    console.log(res)
+    console.log(response)
    // .catch(err => res.status(500).json(err));
 
   },
