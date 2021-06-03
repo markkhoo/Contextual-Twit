@@ -144,9 +144,14 @@ module.exports = {
   // }
 
   getTrending: function(req, res){
-    client.get('search/tweets', { q: `${req.body.thekey}`, lang: 'en', count: 50 }, function (error, tweets, response) {
-  });
+    client.get('search/tweets', { q: 'lakers', lang: 'en', count: 5 })
+    .then(tweets => res.json(tweets)) 
+    console.log("*******")
+    console.log(res)
+   // .catch(err => res.status(500).json(err));
+
   },
+  
   //*****************************START OF SENTIMENT ANALYSIS API CALL ROUTE***********************************
   //********************************************************************************************************** 
 

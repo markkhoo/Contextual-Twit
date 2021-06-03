@@ -5,7 +5,7 @@ const API = {
         return axios.post(`/API/analysis/`, query)
     },
     searchTrending: () => {
-        return axios.get('/api/trending')
+        return axios.get('/API/trending')
     }
 };
 
