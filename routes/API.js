@@ -29,6 +29,10 @@ router
 router
     .route('/logout')
     .post(postController.destroy); 
+
+router
+    .route('/trending')
+    .post(postController.getTrending);
    
 
 module.exports = router;

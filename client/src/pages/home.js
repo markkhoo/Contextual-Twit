@@ -22,8 +22,6 @@ function Home() {
         console.log(getData);
     }, [getData])
 
-//trending on twitter
-
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
     };
