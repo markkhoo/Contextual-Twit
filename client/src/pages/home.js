@@ -69,7 +69,7 @@ const LoadingIndicator = props => {
         <div className="searchAndSubmit">
             <Header />
             <form
-                className="input-group mb-3"
+                className="searchForm"
                 onSubmit={handleSubmit}
             >
                 <input
@@ -77,16 +77,18 @@ const LoadingIndicator = props => {
                     name="search"
                     placeholder="Search Twitter"
                     onChange={handleSetInput}
-                    className="form-control"
+                    className="inputText"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                 />
-                <input
+                <button
                     type="submit"
                     value="Search Tweets"
-                    className="btn btn-outline-secondary"
+                    className="buttonSearchSubmit"
                     id="button-addon2"
-                />
+                >
+                    <img src="search2.svg" alt="search button" />
+                </button>
             </form>
             <div className="container">
             {
