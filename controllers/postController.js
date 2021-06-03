@@ -20,8 +20,6 @@ const toneAnalyzer = new ToneAnalyzerV3({
 });
 
 
-
-
 module.exports = {
   //==========================ROUTE WORKS-GETS ALL USERS*****************WE NEED TO REMOVE THIS ROUTE LATER, DON'T WANT USER INFO BEING PULLED***********************
   findAll: function (req, res) {

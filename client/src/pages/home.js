@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Chart_Vader from "../components/chart_vader/chart_vader";
 import API from "../utils/API"
 import "./home.css";
+import axios from "axios"
 
 //loading
 import { trackPromise } from "react-promise-tracker";
@@ -16,18 +17,13 @@ function Home() {
     const [getinput, setInput] = useState({});
     const [getData, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
-    //const [trending, setTrending] = useState([]);//sets trending twits
-
+    
     useEffect(() => {
         console.log(getData);
     }, [getData])
 
 //trending on twitter
-// useEffect(() =>)
-// axios.get('search/tweets', { q: `${req.body.thekey}`, lang: 'en', count: 50 }, function (error, tweets, response) {
 
-
-//
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
     };
