@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+.chart {
+    text-align: center;
+}
+
 .chart h1 {
     align-items: center;
     text-align: center;
@@ -8,5 +12,6 @@
 }
 
 .chart .bubble {
-    width: 1000px;
+    width: 90%;
+    margin: 0 auto;
 }

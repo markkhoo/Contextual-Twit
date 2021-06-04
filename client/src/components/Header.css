@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* .jumbotron {
+    background-color: #ccc;
+    margin-bottom: 0;
+} */
+
 .container img {
     width: 75%;
 }
@@ -11,6 +16,8 @@
 
 .nav-wrapper {
     background-color: #000;
+    overflow: hidden;
+    /* margin-top: 0; */
 }
 
 .nav-wrapper ul {
@@ -22,11 +29,10 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 22px;
     text-align: center;
-    overflow: hidden;
 }
 
 .hamburger-box {
-    display: block;
+    display: none;
     width: 40px;
     height: 24px;
     cursor: pointer;
@@ -34,6 +40,7 @@
     left: 20px;
     top: 18px;
     z-index: 9;
+    margin-top: 10px;
 }
 
 .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
@@ -59,3 +66,16 @@
 .hamburger-inner:before {
     top: -10px;
 }
+
+@media screen and (max-width: 989px) {
+    .hamburger-box {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-box {
+        display: block;
+    }
+}
+

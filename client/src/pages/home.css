@@ -1,3 +1,50 @@
-.searchAndSubmit .form-control {
-    width: 50%;
-} 
+.wrapper {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 75px;
+}
+
+.wrapper .loading {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.searchForm {
+    position: relative;
+    width: 350px;
+    float: right;
+    margin: -54px 40px 0 0;
+}
+
+.searchForm .inputText {
+    width: 100% !important;
+    border: 0 !important;
+    background-color: #333 !important;
+    padding: 0px 15px !important;
+    border-radius: 10px !important;
+}
+
+.searchForm .buttonSearchSubmit {
+    position: absolute;
+    top: 8px;
+    right: -25px;
+    border: 0;
+    width: 40px;
+    background: transparent !important;
+}
+
+.searchForm .buttonSearchSubmit img {
+    width: 100%;
+}
+
+@media screen and (max-width: 425px) {
+    .searchForm .inputText {
+        width: 50% !important;
+        float: right;
+    }
+}
+
