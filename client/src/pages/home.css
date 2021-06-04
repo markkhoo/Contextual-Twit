@@ -41,4 +41,10 @@
     width: 100%;
 }
 
+@media screen and (max-width: 425px) {
+    .searchForm .inputText {
+        width: 50% !important;
+        float: right;
+    }
+}
 

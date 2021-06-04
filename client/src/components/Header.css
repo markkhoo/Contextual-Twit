@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* .jumbotron {
+    background-color: #ccc;
+    margin-bottom: 0;
+} */
+
 .container img {
     width: 75%;
 }
@@ -12,6 +17,7 @@
 .nav-wrapper {
     background-color: #000;
     overflow: hidden;
+    /* margin-top: 0; */
 }
 
 .nav-wrapper ul {
