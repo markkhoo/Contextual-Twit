@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Chart_Vader from "../components/chart_vader/chart_vader";
 import API from "../utils/API"
 import "./home.css";
+import axios from "axios"
 
 //loading
 import { trackPromise } from "react-promise-tracker";
@@ -11,23 +12,27 @@ import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
 
-function Home() {
+function Home(props) {
 
     const [getinput, setInput] = useState({});
     const [getData, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
+    
     useEffect(() => {
         console.log(getData);
-    }, [getData])
+        
+        console.log(props.location.state);
+
+    }, [])
 
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
     };
 
-//loading
-const LoadingIndicator = props => {
-    const {promiseInProgress} = usePromiseTracker();
-    return (
+    //This function triggers the loading icon
+    const LoadingIndicator = props => {
+        const { promiseInProgress } = usePromiseTracker();
+        return (
 
         promiseInProgress &&
 
@@ -52,22 +57,37 @@ const LoadingIndicator = props => {
         </div> 
             
     );  
+
     }
+
+    
+    // function handleLogout (event) {
+    //     event.preventDefault()
+
+    //     axios.post("/api/logout")
+    //         .then(function (response) {
+    //             console.log(response)
+                
+    //         })
+    //     console.log(login1, login2, login3)
+    // }
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setIsLoading(true);
-        trackPromise(
-        API.searchTwit(getinput).then((res) => {
-            setIsLoading(false)
-            setData(res.data)
-        })
-        )      
-};
+        trackPromise( //tracks the promise to set the loading icon
+            API.searchTwit(getinput).then((res) => {
+                setIsLoading(false)
+                setData(res.data)
+            })
+        )
+    };
 
     return (
         <div className="searchAndSubmit">
-            <Header />
+            <Header  />
             <form
                 className="searchForm"
                 onSubmit={handleSubmit}
@@ -91,13 +111,32 @@ const LoadingIndicator = props => {
                 </button>
             </form>
             <div className="container">
-            {
-                !isLoading ?
-                    <Chart_Vader data={getData} /> :
-                    <LoadingIndicator />
-            }
+                <div className="row">
+                    <div className="col s3">
+                        <ul class="collection with-header">
+                            <li class="collection-header"><h4>Trending on Twitter</h4></li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                        </ul>
+                    </div>
+                    <div className="col s9">
+                        {
+                            !isLoading ?
+                                <Chart_Vader data={getData} /> :
+                                <LoadingIndicator />
+                        }
+                    </div>
+                </div>
             </div>
-           
+
         </div>
     )
 };

@@ -15,7 +15,7 @@ router
 
 //=============================================THIS ROUTE WORKS----REGISTER NEW USER===================================================================================
 router
-    .route("/") 
+    .route("/register") 
     .post(postController.create);
 
 
@@ -29,6 +29,10 @@ router
 router
     .route('/logout')
     .post(postController.destroy); 
+
+router
+    .route('/trending')
+    .post(postController.getTrending);
    
 
 module.exports = router;
@@ -44,3 +48,4 @@ module.exports = router;
 // router
 //     .route("/:id")                      //-------------------Left here in case we need it later----------------
 //     .delete(postController.remove);
+//hello

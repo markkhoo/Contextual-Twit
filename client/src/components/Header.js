@@ -34,23 +34,13 @@ function Header(props) {
                             Home
                         </Link>
                         </li>
+                       
                         <li>
                         <Link
+                            onClick={ props.handleLogout }
                             to="/login"
                             className={
-                                window.location.pathname === "/login" || window.location.pathname === "/login"
-                                    ? "nav-link active"
-                                    : "nav-link"
-                            }
-                        >
-                            Login
-                        </Link>
-                        </li>
-                        <li>
-                        <Link
-                            to="/logout"
-                            className={
-                                window.location.pathname === "/logout" || window.location.pathname === "/logout"
+                                window.location.pathname === "/login" || window.location.pathname === "/logout"
                                     ? "nav-link active"
                                     : "nav-link"
                             }
