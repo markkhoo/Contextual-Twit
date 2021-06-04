@@ -1,13 +1,15 @@
 import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
+import Summary from "../components/summary/summary";
 import Chart_Vader from "../components/chart_vader/chart_vader";
+import Chart_Watson from "../components/chart_watson/chart_watson";
+import Data_Container from "../components/data_container/data_container";
 import API from "../utils/API"
 import "./home.css";
-import axios from "axios"
 
 //loading
 import { trackPromise } from "react-promise-tracker";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
@@ -19,72 +21,28 @@ function Home(props) {
     const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
     const [trending, setTrending] = useState(null);
 
+    // ===== Console Log Fetched Data =====
+    // useEffect(() => {
+    //     console.log(getData);
+    //     console.log(props.location.state);
+    // }, []);
+
     useEffect(() => {
         loadTrending()
-    }, [])
-    function loadTrending() {
+    }, []);
+
+    const loadTrending = () => {
         API.searchTrending()
             .then(tweets => {
                 console.log("***tweets", tweets)
                 setTrending(tweets.data)
             })
             .catch(err => console.log(err));
-    }
-    useEffect(() => {
-        console.log(getData);
-        
-        console.log(props.location.state);
-
-    }, [])
+    };
 
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
     };
-
-    //This function triggers the loading icon
-    const LoadingIndicator = props => {
-        const { promiseInProgress } = usePromiseTracker();
-        return (
-
-        promiseInProgress &&
-
-        <div className="wrapper">
-            <div class="loading">   
-                <Loader
-                    type="Circles"
-                    color="#f06292"
-                    height={50}
-                    width={50}
-                    timeout={5000} //3 secs
-                />
-                <h4>&#x1F60a; Analysing your data</h4>
-                <Loader
-                    type="Circles"
-                    color="#f06292"
-                    height={50}
-                    width={50}
-                    timeout={5000} //3 secs
-                />
-            </div>
-        </div> 
-            
-    );  
-
-    }
-
-    
-    // function handleLogout (event) {
-    //     event.preventDefault()
-
-    //     axios.post("/api/logout")
-    //         .then(function (response) {
-    //             console.log(response)
-                
-    //         })
-    //     console.log(login1, login2, login3)
-    // }
-
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -96,6 +54,45 @@ function Home(props) {
             })
         )
     };
+
+    //This function triggers the loading icon
+    const LoadingIndicator = props => {
+        const { promiseInProgress } = usePromiseTracker();
+        return (
+
+            promiseInProgress &&
+
+            <div className="wrapper">
+                <div class="loading">
+                    <Loader
+                        type="Circles"
+                        color="#f06292"
+                        height={50}
+                        width={50}
+                        timeout={5000} //3 secs
+                    />
+                    <h4>&#x1F60a; Analysing your data</h4>
+                    <Loader
+                        type="Circles"
+                        color="#f06292"
+                        height={50}
+                        width={50}
+                        timeout={5000} //3 secs
+                    />
+                </div>
+            </div>
+
+        );
+    };
+
+    // function handleLogout (event) {
+    //     event.preventDefault()
+    //     axios.post("/api/logout")
+    //         .then(function (response) {
+    //             console.log(response)
+    //         })
+    //     console.log(login1, login2, login3)
+    // }
 
     const renderTweetCollection = () => {
         let result = null;
@@ -114,11 +111,11 @@ function Home(props) {
         }
 
         return result;
-    }
+    };
 
     return (
         <div className="searchAndSubmit">
-            <Header  />
+            <Header />
             <form
                 className="searchForm"
                 onSubmit={handleSubmit}
@@ -147,13 +144,18 @@ function Home(props) {
                         <ul className="collection with-header">
                             <li className="collection-header"><h4>Trending on Twitter</h4></li>
                             {renderTweetCollection()}
-                            
+
                         </ul>
                     </div>
                     <div className="col s9">
                         {
                             !isLoading ?
-                                <Chart_Vader data={getData} /> :
+                                <>
+                                    <Summary data={getData} />
+                                    <Chart_Vader data={getData} />
+                                    <Chart_Watson data={getData} />
+                                    <Data_Container data={getData} />
+                                </> :
                                 <LoadingIndicator />
                         }
                     </div>

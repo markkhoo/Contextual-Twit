@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
 
-import { trackPromise } from "react-promise-tracker";
-import { render } from "react-dom";
-import { usePromiseTracker } from "react-promise-tracker";
-import Loader from "react-loader-spinner";
-
 function Chart_Vader(props) {
     const [getDat1, setDat1] = useState([]);
     const [getSet1, setSet1] = useState([]);
@@ -69,6 +64,6 @@ function Chart_Vader(props) {
             </div>
         </div>
     )
-}
+};
 
 export default Chart_Vader;
