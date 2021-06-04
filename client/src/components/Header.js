@@ -17,8 +17,8 @@ function Header(props) {
             <nav>
 
                 <div className="nav-wrapper">
-                    <div class="hamburger-box" onClick={toggleMenu}>
-                        <div class="hamburger-inner"></div>
+                    <div className="hamburger-box" onClick={toggleMenu}>
+                        <div className="hamburger-inner"></div>
                     </div>
                     {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                     <ul className="hide-on-med-and-down">

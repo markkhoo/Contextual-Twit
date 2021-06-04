@@ -145,53 +145,24 @@ module.exports = {
 
   getTrending: function(req, response){
     client.get('search/tweets', { q: 'trending', lang: 'en', count: 10 })
-    //.then(tweet => //response.json(tweet)) 
-    // .then(response => {
-
-      // console.log(JSON.stringify(utteranceAnalyses, null, 2));
-      // utteranceAnalyses.result.utterances_tone.forEach((data1) => {
-      //   console.log(data1);
-      // });
-    //   var arr = []
-    //   for (let i = 0; i < response.length; i++) {
-    //     // Vader-Sentiment
-    //     arr.push({
-    //       text: response.tweet.statuses.text,
-    //       created_at: response.tweet.statuses.created_at,
-    //       screen_name: response.tweet.statuses.user.screen_name
-
-    //     })
-        
-    //   };
-    //   // console.log(data); 
-    //   res.json(response)// <=== Data to deliver here!
-    // })
-    // .then(response => 
-      
-
-    //   response.tweet.items.filter(
-    //     tweet =>
-    //       tweet.statuses.text && 
-    //       tweet.statuses.created_at &&
-    //       tweet.statuses.user.screen_name
-    //   ))
-    .then(response => {
-          //   for (let i = 0; i < response.length; i++) {
-
-
-
-    })
-    .then(tweets =>
-      
-      
-      
-      
-      response.json(tweets)) 
-    .catch(err => response.status(500).json(err));
+    //.then(tweet => response.json(tweet)) 
     
-    console.log("*******")
-    console.log(response)
-  //  .catch(err => res.status(500).json(err));
+
+    .then(response => 
+
+      response.statuses.map(
+        status => {return  {text: status.text, created_at: status.created_at, screen_name: status.user.screen_name} }
+        )
+
+    )
+    .then(tweets => response.json(tweets)) 
+    
+    .catch(err => console.log(err));
+    
+    
+   
+    
+   // .catch(err => res.status(500).json(err));
 
   },
   
