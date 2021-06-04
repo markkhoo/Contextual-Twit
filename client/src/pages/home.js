@@ -17,7 +17,19 @@ function Home() {
     const [getinput, setInput] = useState({});
     const [getData, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
-    
+    const [trending, setTrending] = useState(null);
+
+    useEffect(() => {
+        loadTrending()
+    }, [])
+    function loadTrending() {
+        API.searchTrending()
+            .then(tweets => {
+                console.log("***tweets", tweets)
+                setTrending(tweets.data)
+            })
+            .catch(err => console.log(err));
+    }
     useEffect(() => {
         console.log(getData);
     }, [getData])
@@ -33,7 +45,7 @@ function Home() {
 
             promiseInProgress &&
             <div className="row">
-                <div class="col sm12">
+                <div className="col sm12">
                     <Loader
                         type="Circles"
                         color="#f06292"
@@ -65,6 +77,25 @@ function Home() {
         )
     };
 
+    const renderTweetCollection = () => {
+        let result = null;
+
+        if (trending) {
+            result = trending.map((tweet) => {
+                return (
+                    <div>
+                        <li className="collection-item">{tweet.screen_name}</li>
+                        <li className="collection-item">{tweet.created_at}</li>
+                        <li className="collection-item">{tweet.text}</li>
+
+                    </div>
+                )
+            });
+        }
+
+        return result;
+    }
+
     return (
         <div className="searchAndSubmit">
             <Header />
@@ -91,18 +122,10 @@ function Home() {
             <div className="container">
                 <div className="row">
                     <div className="col s3">
-                        <ul class="collection with-header">
-                            <li class="collection-header"><h4>Trending on Twitter</h4></li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
-                            <li class="collection-item">Alvin</li>
+                        <ul className="collection with-header">
+                            <li className="collection-header"><h4>Trending on Twitter</h4></li>
+                            {renderTweetCollection()}
+                            
                         </ul>
                     </div>
                     <div className="col s9">

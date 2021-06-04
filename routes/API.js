@@ -32,7 +32,7 @@ router
 
 router
     .route('/trending')
-    .post(postController.getTrending);
+    .get(postController.getTrending);
    
 
 module.exports = router;
