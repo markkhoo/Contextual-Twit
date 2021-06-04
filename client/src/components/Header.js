@@ -21,7 +21,7 @@ function Header(props) {
                         <div class="hamburger-inner"></div>
                     </div>
                     {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
-                    <ul className="hide-on-med-and-down">
+                    <ul className="right hide-on-med-and-down">
                         <li>
                         <Link
                             to="/"
@@ -34,20 +34,19 @@ function Header(props) {
                             Home
                         </Link>
                         </li>
-                       
                         <li>
                         <Link
-                            onClick={ props.handleLogout }
                             to="/login"
                             className={
-                                window.location.pathname === "/login" || window.location.pathname === "/logout"
+                                window.location.pathname === "/login" || window.location.pathname === "/login"
                                     ? "nav-link active"
                                     : "nav-link"
                             }
                         >
-                            Logout
+                            Login
                         </Link>
                         </li>
+                       
                     </ul>
                 </div>
             </nav>

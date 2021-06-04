@@ -105,10 +105,10 @@ function Login() {
 
 
         <div>
-            { redirect ? <Redirect to= {{
+            { redirect ? <Redirect to={{
                 pathname: "/",
-                state: { userName: login1, email: login2 ,password: login3 }
-    
+                state: { userName: login1, email: login2, password: login3 }
+
             }} /> :
                 <div>
                     <Header />
@@ -177,7 +177,7 @@ function Login() {
                         </div>
                     </div>
                 </div>
-            } 
+            }
         </div>
     )
 }
