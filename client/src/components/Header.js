@@ -21,7 +21,7 @@ function Header(props) {
                         <div class="hamburger-inner"></div>
                     </div>
                     {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
-                    <ul className="right hide-on-med-and-down">
+                    <ul className="hide-on-med-and-down">
                         <li>
                         <Link
                             to="/"

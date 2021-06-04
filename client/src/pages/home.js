@@ -34,27 +34,30 @@ function Home(props) {
         const { promiseInProgress } = usePromiseTracker();
         return (
 
-            promiseInProgress &&
-            <div className="row">
-                <div class="col sm12">
-                    <Loader
-                        type="Circles"
-                        color="#f06292"
-                        height={50}
-                        width={50}
-                        timeout={5000} //5 secs
-                    />
-                    <h4>&#x1F60a; Analysing your data</h4>
-                    <Loader
-                        type="Circles"
-                        color="#f06292"
-                        height={50}
-                        width={50}
-                        timeout={5000} //5 secs
-                    />
-                </div>
+        promiseInProgress &&
+
+        <div className="wrapper">
+            <div class="loading">   
+                <Loader
+                    type="Circles"
+                    color="#f06292"
+                    height={50}
+                    width={50}
+                    timeout={5000} //3 secs
+                />
+                <h4>&#x1F60a; Analysing your data</h4>
+                <Loader
+                    type="Circles"
+                    color="#f06292"
+                    height={50}
+                    width={50}
+                    timeout={5000} //3 secs
+                />
             </div>
-        );
+        </div> 
+            
+    );  
+
     }
 
     
@@ -86,7 +89,7 @@ function Home(props) {
         <div className="searchAndSubmit">
             <Header  />
             <form
-                className="input-group mb-3"
+                className="searchForm"
                 onSubmit={handleSubmit}
             >
                 <input
@@ -94,16 +97,18 @@ function Home(props) {
                     name="search"
                     placeholder="Search Twitter"
                     onChange={handleSetInput}
-                    className="form-control"
+                    className="inputText"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                 />
-                <input
+                <button
                     type="submit"
                     value="Search Tweets"
-                    className="btn btn-outline-secondary"
+                    className="buttonSearchSubmit"
                     id="button-addon2"
-                />
+                >
+                    <img src="search2.svg" alt="search button" />
+                </button>
             </form>
             <div className="container">
                 <div className="row">

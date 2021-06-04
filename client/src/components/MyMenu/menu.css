@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.menu {
+    position: relative;
+}
+
 .menu .buttonClose {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    border: 1px solid #000;
+    width: 30px;
+    height: 30px;
     
+}
+
+.menu ul {
+    margin: 50px 10px;
+}
+
+.menu ul li a {
+    font-size: 25px;
+    font-family: 'Bebas Neue', cursive;
+    color: #000;
+    display: inline-block;
+    width: 100%;
+}
+
+.menu ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.26);
+    color: #fff;
 }
