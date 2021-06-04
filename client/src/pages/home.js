@@ -6,11 +6,10 @@ import Chart_Watson from "../components/chart_watson/chart_watson";
 import Data_Container from "../components/data_container/data_container";
 import API from "../utils/API"
 import "./home.css";
-import axios from "axios"
 
 //loading
 import { trackPromise } from "react-promise-tracker";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
@@ -22,26 +21,38 @@ function Home(props) {
     const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
     const [trending, setTrending] = useState(null);
 
+    // ===== Console Log Fetched Data =====
+    // useEffect(() => {
+    //     console.log(getData);
+    //     console.log(props.location.state);
+    // }, []);
+
     useEffect(() => {
         loadTrending()
-    }, [])
-    function loadTrending() {
+    }, []);
+
+    const loadTrending = () => {
         API.searchTrending()
             .then(tweets => {
                 console.log("***tweets", tweets)
                 setTrending(tweets.data)
             })
             .catch(err => console.log(err));
-    }
-    useEffect(() => {
-        console.log(getData);
-
-        console.log(props.location.state);
-
-    }, [])
+    };
 
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setIsLoading(true);
+        trackPromise( //tracks the promise to set the loading icon
+            API.searchTwit(getinput).then((res) => {
+                setIsLoading(false)
+                setData(res.data)
+            })
+        )
     };
 
     //This function triggers the loading icon
@@ -72,33 +83,16 @@ function Home(props) {
             </div>
 
         );
-
-    }
-
+    };
 
     // function handleLogout (event) {
     //     event.preventDefault()
-
     //     axios.post("/api/logout")
     //         .then(function (response) {
     //             console.log(response)
-
     //         })
     //     console.log(login1, login2, login3)
     // }
-
-
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setIsLoading(true);
-        trackPromise( //tracks the promise to set the loading icon
-            API.searchTwit(getinput).then((res) => {
-                setIsLoading(false)
-                setData(res.data)
-            })
-        )
-    };
 
     const renderTweetCollection = () => {
         let result = null;
@@ -117,7 +111,7 @@ function Home(props) {
         }
 
         return result;
-    }
+    };
 
     return (
         <div className="searchAndSubmit">
@@ -155,13 +149,13 @@ function Home(props) {
                     </div>
                     <div className="col s9">
                         {
-                            !isLoading ? 
-                            <>
-                                <Summary data={getData} />
-                                <Chart_Vader data={getData} />
-                                <Chart_Watson data={getData} />
-                                <Data_Container data={getData} />
-                            </> :
+                            !isLoading ?
+                                <>
+                                    <Summary data={getData} />
+                                    <Chart_Vader data={getData} />
+                                    <Chart_Watson data={getData} />
+                                    <Data_Container data={getData} />
+                                </> :
                                 <LoadingIndicator />
                         }
                     </div>
