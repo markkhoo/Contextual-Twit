@@ -32,7 +32,7 @@ function Home(props) {
     }
     useEffect(() => {
         console.log(getData);
-        
+
         console.log(props.location.state);
 
     }, [])
@@ -46,40 +46,40 @@ function Home(props) {
         const { promiseInProgress } = usePromiseTracker();
         return (
 
-        promiseInProgress &&
+            promiseInProgress &&
 
-        <div className="wrapper">
-            <div class="loading">   
-                <Loader
-                    type="Circles"
-                    color="#f06292"
-                    height={50}
-                    width={50}
-                    timeout={5000} //3 secs
-                />
-                <h4>&#x1F60a; Analysing your data</h4>
-                <Loader
-                    type="Circles"
-                    color="#f06292"
-                    height={50}
-                    width={50}
-                    timeout={5000} //3 secs
-                />
+            <div className="wrapper">
+                <div class="loading">
+                    <Loader
+                        type="Circles"
+                        color="#f06292"
+                        height={50}
+                        width={50}
+                        timeout={5000} //3 secs
+                    />
+                    <h4>&#x1F60a; Analysing your data</h4>
+                    <Loader
+                        type="Circles"
+                        color="#f06292"
+                        height={50}
+                        width={50}
+                        timeout={5000} //3 secs
+                    />
+                </div>
             </div>
-        </div> 
-            
-    );  
+
+        );
 
     }
 
-    
+
     // function handleLogout (event) {
     //     event.preventDefault()
 
     //     axios.post("/api/logout")
     //         .then(function (response) {
     //             console.log(response)
-                
+
     //         })
     //     console.log(login1, login2, login3)
     // }
@@ -104,10 +104,21 @@ function Home(props) {
             result = trending.map((tweet) => {
                 return (
                     <div>
-                        <li className="collection-item">{tweet.screen_name}</li>
-                        <li className="collection-item">{tweet.created_at}</li>
-                        <li className="collection-item">{tweet.text}</li>
-
+                        <ul>
+                            <li class="collection-item avatar">
+                                <h5><i class="fab fa-twitter"></i>
+                                {tweet.screen_name} </h5>
+                                <br></br>
+                                <p> { tweet.created_at} <br/>
+                                <br></br>
+                                    { tweet.text}
+                                </p>
+                                    
+                            </li>
+                                {/* <li className="collection-item">{tweet.screen_name}</li>
+                            <li className="collection-item">{tweet.created_at}</li>
+                            <li className="collection-item">{tweet.text}</li> */}
+                        </ul>
                     </div>
                 )
             });
@@ -117,50 +128,50 @@ function Home(props) {
     }
 
     return (
-        <div className="searchAndSubmit">
-            <Header  />
-            <form
-                className="searchForm"
-                onSubmit={handleSubmit}
-            >
-                <input
-                    type="text"
-                    name="search"
-                    placeholder="Search Twitter"
-                    onChange={handleSetInput}
-                    className="inputText"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
-                />
-                <button
-                    type="submit"
-                    value="Search Tweets"
-                    className="buttonSearchSubmit"
-                    id="button-addon2"
-                >
-                    <img src="search2.svg" alt="search button" />
-                </button>
-            </form>
-            <div className="container">
-                <div className="row">
-                    <div className="col s3">
-                        <ul className="collection with-header">
-                            <li className="collection-header"><h4>Trending on Twitter</h4></li>
-                            {renderTweetCollection()}
-                            
-                        </ul>
-                    </div>
-                    <div className="col s9">
-                        {
-                            !isLoading ?
-                                <Chart_Vader data={getData} /> :
-                                <LoadingIndicator />
-                        }
-                    </div>
-                </div>
-            </div>
+                        <div className="searchAndSubmit">
+                            <Header />
+                            <form
+                                className="searchForm"
+                                onSubmit={handleSubmit}
+                            >
+                                <input
+                                    type="text"
+                                    name="search"
+                                    placeholder="Search Twitter"
+                                    onChange={handleSetInput}
+                                    className="inputText"
+                                    aria-label="Recipient's username"
+                                    aria-describedby="button-addon2"
+                                />
+                                <button
+                                    type="submit"
+                                    value="Search Tweets"
+                                    className="buttonSearchSubmit"
+                                    id="button-addon2"
+                                >
+                                    <img src="search2.svg" alt="search button" />
+                                </button>
+                            </form>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col s3">
+                                        <ul className="collection with-header">
+                                            <li className="collection-header"><h4>Trending on Twitter</h4></li>
+                                            {renderTweetCollection()}
 
-        </div>
+                                        </ul>
+                                    </div>
+                                    <div className="col s9">
+                                        {
+                                            !isLoading ?
+                                                <Chart_Vader data={getData} /> :
+                                                <LoadingIndicator />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
     )
 };
 
