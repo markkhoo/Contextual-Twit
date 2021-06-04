@@ -47,6 +47,30 @@ const userSeed = [
     },
 ]
 
+const tagSeed = [
+    {
+        name: "#Valorant"
+    },
+    {
+        name: "#BTD6"
+    },
+    {
+        name: "#California"
+    },
+    {
+        name: "#Youtube"
+    },
+    {
+        name: "@Elon"
+    },
+    {
+        name: "JavaScript"
+    },
+    {
+        name: "#Python"
+    },
+    
+]
 
 
 db.User.remove({})
@@ -59,3 +83,20 @@ db.User.remove({})
     console.error(err);
     process.exit(1);
   });
+
+
+  db.Tag.remove({})
+  .then(() => db.Tag.collection.insertMany(tagSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+<<<<<<< HEAD
+  });
+=======
+  });
+
+>>>>>>> c74623c14bb95c094488f0737bd653401a6e36b9

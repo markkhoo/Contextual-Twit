@@ -20,8 +20,6 @@ const toneAnalyzer = new ToneAnalyzerV3({
 });
 
 
-
-
 module.exports = {
   //==========================ROUTE WORKS-GETS ALL USERS*****************WE NEED TO REMOVE THIS ROUTE LATER, DON'T WANT USER INFO BEING PULLED***********************
   findAll: function (req, res) {
@@ -145,6 +143,29 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // }
 
+  getTrending: function(req, response){
+    client.get('search/tweets', { q: 'trending', lang: 'en', count: 10 })
+    //.then(tweet => response.json(tweet)) 
+    
+
+    .then(response => 
+
+      response.statuses.map(
+        status => {return  {text: status.text, created_at: status.created_at, screen_name: status.user.screen_name} }
+        )
+
+    )
+    .then(tweets => response.json(tweets)) 
+    
+    .catch(err => console.log(err));
+    
+    
+   
+    
+   // .catch(err => res.status(500).json(err));
+
+  },
+  
   //*****************************START OF SENTIMENT ANALYSIS API CALL ROUTE***********************************
   //********************************************************************************************************** 
 

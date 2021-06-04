@@ -1,3 +1,17 @@
-.vaderChart {
-    max-width: 1000px;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.chart {
+    text-align: center;
+}
+
+.chart h1 {
+    align-items: center;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.chart .bubble {
+    width: 90%;
+    margin: 0 auto;
 }
