@@ -46,7 +46,14 @@ function Home(props) {
                 setTrending(tweets.data)
             })
             .catch(err => console.log(err));
-    };
+}
+    useEffect(() => {
+        console.log(getData);
+
+        console.log(props.location.state);
+
+    }, [])
+    
 
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
@@ -80,7 +87,7 @@ function Home(props) {
             promiseInProgress &&
 
             <div className="wrapper">
-                <div class="loading">
+                <div className="loading">
                     <Loader
                         type="Circles"
                         color="#f06292"
@@ -100,13 +107,16 @@ function Home(props) {
             </div>
 
         );
-    };
+        };
+    
+
 
     // function handleLogout (event) {
     //     event.preventDefault()
     //     axios.post("/api/logout")
     //         .then(function (response) {
     //             console.log(response)
+
     //         })
     //     console.log(login1, login2, login3)
     // }
@@ -118,10 +128,21 @@ function Home(props) {
             result = trending.map((tweet) => {
                 return (
                     <div>
-                        <li className="collection-item">{tweet.screen_name}</li>
-                        <li className="collection-item">{tweet.created_at}</li>
-                        <li className="collection-item">{tweet.text}</li>
-
+                        <ul>
+                            <li className="collection-item avatar">
+                                <h5><i className="fab fa-twitter"></i>
+                                {tweet.screen_name} </h5>
+                                <br></br>
+                                <p> { tweet.created_at} <br/>
+                                <br></br>
+                                    { tweet.text}
+                                </p>
+                                    
+                            </li>
+                                {/* <li className="collection-item">{tweet.screen_name}</li>
+                            <li className="collection-item">{tweet.created_at}</li>
+                            <li className="collection-item">{tweet.text}</li> */}
+                        </ul>
                     </div>
                 )
             });
