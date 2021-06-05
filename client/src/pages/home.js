@@ -192,26 +192,36 @@ function Home(props) {
                     <img src="search2.svg" alt="search button" />
                 </button>
             </form>
-            <div className="container">
-                <div className="row">
-                    <div className="col s3">
-                        <ul className="collection with-header">
-                            <li className="collection-header"><h4>Trending on Twitter</h4></li>
-                            {renderTweetCollection()}
+            <div className="content">
+                <div className="content_left">
+                    <h2 className="content_title">Trending on Twitter</h2>
+                    <div className="collection with-header">
+                        {/* <li className="collection-header"></li> */}
+                        {renderTweetCollection()}
 
-                        </ul>
                     </div>
-                    <div className="col s9">
-                        {
-                            !isLoading ?
-                                <>
+                </div>
+                <div className="content_right">
+                    {
+                        !isLoading ?
+                            <>
+                                <div className="summary">
                                     <Summary data={getData} />
+                                </div>
+                                <div className="chart_vader">
                                     <Chart_Vader data={getData} />
+                                </div>
+                                <div className="chart_watson">
                                     <Chart_Watson data={getData} />
-                                    <Data_Container data={getData} />
-                                </> :
-                                <LoadingIndicator />
-                        }
+                                </div>
+                            </> :
+                            <LoadingIndicator />
+                    }
+                </div>
+                <div className="content_bottom">
+                    <div className="data_container">
+                        <h2 className="content_title">Raw Tweets</h2>
+                        <Data_Container data={getData} />
                     </div>
                 </div>
             </div>
