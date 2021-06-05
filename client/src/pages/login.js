@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { Redirect } from "react-router-dom";
 import { STATES } from "mongoose";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 
@@ -13,7 +13,7 @@ const axios = require('axios')
 
 function Login() {
     const [redirect, setRedirect] = useState(false);
-    let history = useHistory();
+    // let history = useHistory();
 
     //register user
 
@@ -119,12 +119,6 @@ function Login() {
                                     <h3>Sign In</h3>
                                     <div className="row">
                                         <form className="col s12">
-                                            <div className="row">
-                                                <div className="input-field col s6">
-                                                    <input onChange={handleSetLoginInput1} placeholder="Placeholder" id="first_name2" type="text" className="validate" />
-                                                    <label for="first_name">Username:</label>
-                                                </div>
-                                            </div>
                                             <div className="row">
                                                 <div className="input-field col s12">
                                                     <input onChange={handleSetLoginInput2} id="email2" type="email" className="validate" />
