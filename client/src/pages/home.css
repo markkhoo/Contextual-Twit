@@ -26,6 +26,7 @@
     background-color: #333 !important;
     padding: 0px 15px !important;
     border-radius: 10px !important;
+    color: #fff !important;
 }
 
 .searchForm .buttonSearchSubmit {
@@ -39,6 +40,23 @@
 
 .searchForm .buttonSearchSubmit img {
     width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.content .content_left {
+    width: 350px;
+    padding: 20px;
+    background-color: #000;
+}
+
+.content .content_left h4 {
+    color: #fff;
+    margin: -10px 0 15px;
+    text-align: center;
 }
 
 @media screen and (max-width: 425px) {

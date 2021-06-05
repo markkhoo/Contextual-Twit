@@ -138,16 +138,17 @@ function Home(props) {
                     <img src="search2.svg" alt="search button" />
                 </button>
             </form>
-            <div className="container">
-                <div className="row">
-                    <div className="col s3">
-                        <ul className="collection with-header">
-                            <li className="collection-header"><h4>Trending on Twitter</h4></li>
+            <div className="content">
+                <div className="content_left">
+                    <div>
+                        <h4>Trending on Twitter</h4>
+                        <div className="collection with-header">
+                            {/* <li className="collection-header"></li> */}
                             {renderTweetCollection()}
 
-                        </ul>
+                        </div>
                     </div>
-                    <div className="col s9">
+                    <div className="content_right">
                         {
                             !isLoading ?
                                 <>
