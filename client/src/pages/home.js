@@ -46,7 +46,14 @@ function Home(props) {
                 setTrending(tweets.data)
             })
             .catch(err => console.log(err));
-    };
+}
+    useEffect(() => {
+        console.log(getData);
+
+        console.log(props.location.state);
+
+    }, [])
+    
 
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
@@ -80,7 +87,7 @@ function Home(props) {
             promiseInProgress &&
 
             <div className="wrapper">
-                <div class="loading">
+                <div className="loading">
                     <Loader
                         type="Circles"
                         color="#f06292"
@@ -100,13 +107,16 @@ function Home(props) {
             </div>
 
         );
-    };
+        };
+    
+
 
     // function handleLogout (event) {
     //     event.preventDefault()
     //     axios.post("/api/logout")
     //         .then(function (response) {
     //             console.log(response)
+
     //         })
     //     console.log(login1, login2, login3)
     // }
@@ -118,10 +128,21 @@ function Home(props) {
             result = trending.map((tweet) => {
                 return (
                     <div>
-                        <li className="collection-item">{tweet.screen_name}</li>
-                        <li className="collection-item">{tweet.created_at}</li>
-                        <li className="collection-item">{tweet.text}</li>
-
+                        <ul>
+                            <li className="collection-item avatar">
+                                <h5><i className="fab fa-twitter"></i>
+                                {tweet.screen_name} </h5>
+                                <br></br>
+                                <p> { tweet.created_at} <br/>
+                                <br></br>
+                                    { tweet.text}
+                                </p>
+                                    
+                            </li>
+                                {/* <li className="collection-item">{tweet.screen_name}</li>
+                            <li className="collection-item">{tweet.created_at}</li>
+                            <li className="collection-item">{tweet.text}</li> */}
+                        </ul>
                     </div>
                 )
             });
@@ -207,26 +228,36 @@ function Home(props) {
                     <img src="search2.svg" alt="search button" />
                 </button>
             </form>
-            <div className="container">
-                <div className="row">
-                    <div className="col s3">
-                        <ul className="collection with-header">
-                            <li className="collection-header"><h4>Trending on Twitter</h4></li>
-                            {renderTweetCollection()}
+            <div className="content">
+                <div className="content_left">
+                    <h2 className="content_title">Trending on Twitter</h2>
+                    <div className="collection with-header">
+                        {/* <li className="collection-header"></li> */}
+                        {renderTweetCollection()}
 
-                        </ul>
                     </div>
-                    <div className="col s9">
-                        {
-                            !isLoading ?
-                                <>
+                </div>
+                <div className="content_right">
+                    {
+                        !isLoading ?
+                            <>
+                                <div className="summary">
                                     <Summary data={getData} />
+                                </div>
+                                <div className="chart_vader">
                                     <Chart_Vader data={getData} />
+                                </div>
+                                <div className="chart_watson">
                                     <Chart_Watson data={getData} />
-                                    <Data_Container data={getData} />
-                                </> :
-                                <LoadingIndicator />
-                        }
+                                </div>
+                            </> :
+                            <LoadingIndicator />
+                    }
+                </div>
+                <div className="content_bottom">
+                    <div className="data_container">
+                        <h2 className="content_title">Raw Tweets</h2>
+                        <Data_Container data={getData} />
                     </div>
                 </div>
             </div>
