@@ -45,7 +45,7 @@ function Summary(props) {
 
     return (
         <div>
-            <h2>Summary Stats</h2>
+            <h2 className="content_title">Summary Stats</h2>
             <p>Total Tweets fetched: {getCoun}</p>
             <p>Tweets from verified accounts: {getVeri}</p>
             <p>Positive Tweets: {getPosC}</p>

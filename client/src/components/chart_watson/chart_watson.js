@@ -47,7 +47,7 @@ function Chart_Watson(props) {
 
     return (
         <div className="chart">
-            <h2>Tone Sums</h2>
+            <h2 className="content_title">Tone Sums</h2>
             <Bar
                 data={{
                     labels: getLabel,
