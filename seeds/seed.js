@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
 
 const userSeed = [
@@ -94,9 +93,4 @@ db.User.remove({})
   .catch(err => {
     console.error(err);
     process.exit(1);
-<<<<<<< HEAD
   });
-=======
-  });
-
->>>>>>> c74623c14bb95c094488f0737bd653401a6e36b9
