@@ -97,6 +97,7 @@ function Login() {
 
 
                 }
+               
             })
         console.log(login1, login2, login3)
     }
@@ -119,12 +120,7 @@ function Login() {
                                     <h3>Sign In</h3>
                                     <div className="row">
                                         <form className="col s12">
-                                            <div className="row">
-                                                <div className="input-field col s6">
-                                                    <input onChange={handleSetLoginInput1} placeholder="Placeholder" id="first_name2" type="text" className="validate" />
-                                                    <label for="first_name">Username:</label>
-                                                </div>
-                                            </div>
+                                         
                                             <div className="row">
                                                 <div className="input-field col s12">
                                                     <input onChange={handleSetLoginInput2} id="email2" type="email" className="validate" />
@@ -137,6 +133,7 @@ function Login() {
                                                     <label for="password">Password</label>
                                                 </div>
                                             </div>
+                                            {<div></div>}
                                             <button onClick={handleLogin} className="btn waves-effect waves-light" type="submit" name="action">Submit
                                             <i className="material-icons right">send</i>
                                             </button>
