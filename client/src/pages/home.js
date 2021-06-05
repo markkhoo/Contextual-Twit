@@ -140,25 +140,33 @@ function Home(props) {
             </form>
             <div className="content">
                 <div className="content_left">
-                    <div>
-                        <h4>Trending on Twitter</h4>
-                        <div className="collection with-header">
-                            {/* <li className="collection-header"></li> */}
-                            {renderTweetCollection()}
+                    <h4>Trending on Twitter</h4>
+                    <div className="collection with-header">
+                        {/* <li className="collection-header"></li> */}
+                        {renderTweetCollection()}
 
-                        </div>
                     </div>
-                    <div className="content_right">
-                        {
-                            !isLoading ?
-                                <>
+                </div>
+                <div className="content_right">
+                    {
+                        !isLoading ?
+                            <>
+                                <div className="summary">
                                     <Summary data={getData} />
+                                </div>
+                                <div className="chart_vader">
                                     <Chart_Vader data={getData} />
+                                </div>
+                                <div className="chart_watson">
                                     <Chart_Watson data={getData} />
-                                    <Data_Container data={getData} />
-                                </> :
-                                <LoadingIndicator />
-                        }
+                                </div>
+                            </> :
+                            <LoadingIndicator />
+                    }
+                </div>
+                <div className="content_bottom">
+                    <div className="data_container">
+                        <Data_Container data={getData} />
                     </div>
                 </div>
             </div>

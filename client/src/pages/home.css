@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .wrapper {
     text-align: center;
     display: flex;
@@ -45,10 +47,11 @@
 .content {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .content .content_left {
-    width: 350px;
+    width: 300px;
     padding: 20px;
     background-color: #000;
 }
@@ -57,6 +60,34 @@
     color: #fff;
     margin: -10px 0 15px;
     text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.content .content_left .collection {
+    max-height: 1250px;
+    overflow-y: auto;
+}
+
+.content .content_right {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content .content_right .summary {
+
+}
+
+.content .content_right .chart_vader {
+
+}
+
+.content .content_right .chart_watson {
+
+}
+
+.content .content_bottom .data_container {
+
 }
 
 @media screen and (max-width: 425px) {
