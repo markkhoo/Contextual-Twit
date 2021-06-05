@@ -63,7 +63,7 @@ function Home(props) {
             promiseInProgress &&
 
             <div className="wrapper">
-                <div class="loading">
+                <div className="loading">
                     <Loader
                         type="Circles"
                         color="#f06292"
@@ -104,7 +104,6 @@ function Home(props) {
                         <li className="collection-item">{tweet.screen_name}</li>
                         <li className="collection-item">{tweet.created_at}</li>
                         <li className="collection-item">{tweet.text}</li>
-
                     </div>
                 )
             });
