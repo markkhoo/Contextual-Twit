@@ -140,7 +140,7 @@ function Home(props) {
             </form>
             <div className="content">
                 <div className="content_left">
-                    <h4>Trending on Twitter</h4>
+                    <h2 className="content_title">Trending on Twitter</h2>
                     <div className="collection with-header">
                         {/* <li className="collection-header"></li> */}
                         {renderTweetCollection()}

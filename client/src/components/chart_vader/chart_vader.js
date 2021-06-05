@@ -24,7 +24,7 @@ function Chart_Vader(props) {
 
     return (
         <div className="chart">
-            <h1>Chart 1</h1>
+            <h2 className="content_title">Chart 1</h2>
             <div className="bubble">
                 <Bubble
                     data={{

@@ -64,7 +64,7 @@ function Data_Container(props) {
 
     return (
         <div>
-            <h2>Raw Tweets</h2>
+            <h2 className="content_title">Raw Tweets</h2>
             <table className="tweet_table">
                 <thead>
                     <tr>
