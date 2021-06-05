@@ -61,7 +61,7 @@
 .content .content_left {
     width: 300px;
     padding: 20px;
-    background-color: #000;
+    background-color: #333;
 }
 
 .content .content_left h2 {
@@ -95,8 +95,26 @@
     padding: 20px;
 }
 
-.content .content_bottom .data_container {
+.content .content_bottom {
+    background-color: #000;
+    padding: 20px;
+    width: 100%;
+}
 
+.content .content_bottom .data_container h2 {
+    color: #fff;
+}
+
+.data_container .table_wrapper {
+    overflow: auto;
+    /* width: 950px; */
+    margin: 0 auto;
+    background-color: #fff;
+    max-height: 400px;
+}
+
+.data_container .table_wrapper .tweet_table {
+    width: 3600px;
 }
 
 @media screen and (max-width: 425px) {

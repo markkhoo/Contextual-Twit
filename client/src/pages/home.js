@@ -166,6 +166,7 @@ function Home(props) {
                 </div>
                 <div className="content_bottom">
                     <div className="data_container">
+                        <h2 className="content_title">Raw Tweets</h2>
                         <Data_Container data={getData} />
                     </div>
                 </div>
