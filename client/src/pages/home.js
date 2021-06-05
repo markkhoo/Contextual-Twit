@@ -14,7 +14,6 @@ import "../components/Header.css";
 
 //loading
 import { trackPromise } from "react-promise-tracker";
-// import { render } from "react-dom";
 import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
