@@ -22,18 +22,10 @@ import Loader from "react-loader-spinner";
 function Home(props) {
 
     const { toggleMenu } = useContext(MenuContext);
-
-
     const [getinput, setInput] = useState({});
     const [getData, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
     const [trending, setTrending] = useState(null);
-
-    // ===== Console Log Fetched Data =====
-    // useEffect(() => {
-    //     console.log(getData);
-    //     console.log(props.location.state);
-    // }, []);
 
     useEffect(() => {
         loadTrending()
@@ -49,16 +41,11 @@ function Home(props) {
 }
     useEffect(() => {
         console.log(getData);
-
         console.log(props.location.state);
-
     }, [])
-    
-
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
     };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         setIsLoading(true);
@@ -83,9 +70,7 @@ function Home(props) {
     const LoadingIndicator = props => {
         const { promiseInProgress } = usePromiseTracker();
         return (
-
             promiseInProgress &&
-
             <div className="wrapper">
                 <div className="loading">
                     <Loader
@@ -105,25 +90,11 @@ function Home(props) {
                     />
                 </div>
             </div>
-
         );
         };
-    
-
-
-    // function handleLogout (event) {
-    //     event.preventDefault()
-    //     axios.post("/api/logout")
-    //         .then(function (response) {
-    //             console.log(response)
-
-    //         })
-    //     console.log(login1, login2, login3)
-    // }
-
+//renders the trending tweets    
     const renderTweetCollection = () => {
         let result = null;
-
         if (trending) {
             result = trending.map((tweet) => {
                 return (
@@ -136,21 +107,15 @@ function Home(props) {
                                 <p> { tweet.created_at} <br/>
                                 <br></br>
                                     { tweet.text}
-                                </p>
-                                    
+                                </p>                                
                             </li>
-                                {/* <li className="collection-item">{tweet.screen_name}</li>
-                            <li className="collection-item">{tweet.created_at}</li>
-                            <li className="collection-item">{tweet.text}</li> */}
                         </ul>
                     </div>
                 )
             });
         }
-
         return result;
     };
-
     return (
         <div className="searchAndSubmit">
               <div>
@@ -162,7 +127,6 @@ function Home(props) {
                     </div>
                 </div>
                 <nav>
-
                     <div className="nav-wrapper">
                         <div className="hamburger-box" onClick={toggleMenu}>
                             <div className="hamburger-inner"></div>
