@@ -2,18 +2,11 @@ import Header from "../components/Header";
 import React, { useState } from "react";
 import "./login.css";
 import { Redirect } from "react-router-dom";
-import { STATES } from "mongoose";
-import { useHistory } from "react-router-dom";
-
-
 
 const axios = require('axios')
 
-
-
 function Login() {
     const [redirect, setRedirect] = useState(false);
-    let history = useHistory();
 
     //register user
 

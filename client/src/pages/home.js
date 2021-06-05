@@ -153,7 +153,7 @@ function Home(props) {
 
     return (
         <div className="searchAndSubmit">
-              <div>
+            <div>
                 <div className="jumbotron jumbotron-fluid text-center">
                     <div className="container">
                         {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
@@ -179,7 +179,7 @@ function Home(props) {
                                     }
                                 >
                                     Home
-                        </Link>
+                                </Link>
                             </li>
 
                             <li>
@@ -193,7 +193,7 @@ function Home(props) {
                                     }
                                 >
                                     Logout
-                        </Link>
+                                </Link>
                             </li>
                         </ul>
                     </div>
