@@ -132,11 +132,8 @@ function Home(props) {
                             <li className="collection-item avatar">
                                 <h5><i className="fab fa-twitter"></i>
                                 {tweet.screen_name} </h5>
-                                <br></br>
-                                <p> { tweet.created_at} <br/>
-                                <br></br>
-                                    { tweet.text}
-                                </p>
+                                <strong>{ tweet.created_at}</strong>
+                                <p>{ tweet.text}</p>
                                     
                             </li>
                                 {/* <li className="collection-item">{tweet.screen_name}</li>
