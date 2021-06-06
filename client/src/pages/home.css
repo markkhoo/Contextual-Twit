@@ -159,10 +159,101 @@
     }
 }
 
+@media screen and (max-width: 540px) {
+    .searchForm .inputText {
+        width: 250px !important;
+        float: right;
+    }
+
+    .chart {
+        width: 450px;
+    }
+
+    .content .content_left {
+        width: 100%;
+    }
+
+    .content .content_left .collection {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .searchForm {
+        width: 300px;
+        margin: -50px 10px 0 0;
+        top: 1px;
+    }
+
+    .searchForm .buttonSearchSubmit {
+        position: absolute;
+        top: 8px;
+        right: 0;
+    }
+}
+
+
 @media screen and (max-width: 425px) {
     .searchForm .inputText {
-        width: 50% !important;
+        width: 250px !important;
         float: right;
+    }
+
+    .chart {
+        width: 380px;
+    }
+
+    .content .content_left {
+        width: 100%;
+    }
+
+    .content .content_left .collection {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .searchForm {
+        width: 300px;
+        margin: -50px 10px 0 0;
+        top: 1px;
+    }
+
+    .searchForm .buttonSearchSubmit {
+        position: absolute;
+        top: 8px;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    
+    .searchForm .inputText {
+        width: 200px !important;
+        float: right;
+    }
+
+    .chart {
+        width: 325px;
+    }
+
+    .content .content_left .collection {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .searchForm .inputText {
+        width: 175px !important;
+        float: right;
+    }
+
+    .chart {
+        width: 275px;
+    }
+
+    .content .content_left .collection {
+        max-height: 350px;
+        overflow-y: auto;
     }
 }
 

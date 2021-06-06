@@ -81,3 +81,10 @@
     }
 }
 
+@media screen and (max-width: 375px) {
+    .container p {
+        font-size: 15px;
+        font-family: 'Bebas Neue', cursive;
+    }
+}
+
