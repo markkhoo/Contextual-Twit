@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
 
@@ -23,8 +23,9 @@ function Chart_Vader(props) {
     },[props]);
 
     return (
+        <Fragment>
+        <h2 className="content_title">Chart 1</h2>
         <div className="chart">
-            <h2 className="content_title">Chart 1</h2>
             <div className="bubble">
                 <Bubble
                     data={{
@@ -63,6 +64,7 @@ function Chart_Vader(props) {
                 />
             </div>
         </div>
+    </Fragment>
     )
 };
 

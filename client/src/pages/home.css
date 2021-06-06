@@ -117,6 +117,48 @@
     width: 3600px;
 }
 
+.collection.with-header .collection-item.avatar {
+    padding-left: 10px;
+}
+
+.fab {
+    color: #0077c0;
+}
+
+.collection.with-header .collection-item.avatar h5 {
+    font-size: 20px;
+}
+
+.collection.with-header .collection-item.avatar h5 i {
+    margin-right: 5px;
+}
+
+.collection.with-header .collection-item.avatar p {
+    margin-top: 15px;
+    line-height: 22px;
+}
+
+@media screen and (max-width: 1024px) {
+    .chart {
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 768px) {
+    .content .content_left {
+        width: 200px;
+    }
+    .chart {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .content .content_left .collection {
+        max-height: 1000px;
+        overflow-y: auto;
+    }
+}
+
 @media screen and (max-width: 425px) {
     .searchForm .inputText {
         width: 50% !important;
