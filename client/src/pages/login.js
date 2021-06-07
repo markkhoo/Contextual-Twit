@@ -3,13 +3,11 @@ import React, { useState } from "react";
 import "./login.css";
 import { Redirect } from "react-router-dom";
 
-const axios = require('axios')
+const axios = require('axios');
 
 function Login() {
     const [redirect, setRedirect] = useState(false);
-
     //register user
-
     const [account1, setAccount1] = useState("");
     const [account2, setAccount2] = useState("");
     const [account3, setAccount3] = useState("");
@@ -42,9 +40,7 @@ function Login() {
             .then(function (response) {
                 console.log(response)
             })
-
     }
-
     //login user
     const [login1, setlogin1] = useState("");
     const [login2, setlogin2] = useState("");
@@ -56,8 +52,6 @@ function Login() {
         console.log(setlogin1)
 
     }
-
-
     function handleSetLoginInput2(event) {
         setlogin2(event.target.value)
         console.log(setlogin2)
@@ -68,8 +62,6 @@ function Login() {
         console.log(setlogin2)
 
     }
-
-
     function handleLogin(event) {
         event.preventDefault()
 
@@ -82,21 +74,13 @@ function Login() {
                 console.log(response)
                 if (response) {
                     setRedirect(true)
-                    // document.location.replace('/');
-                    // history.push('/')
-                    // history.push("/");
-
                     console.log("hello2")
-
-
                 }
             })
         console.log(login1, login2, login3)
     }
 
     return (
-
-
         <div>
             { redirect ? <Redirect to= {{
                 pathname: "/home",
@@ -112,12 +96,6 @@ function Login() {
                                     <h3>Sign In</h3>
                                     <div className="row">
                                         <form className="col s12">
-                                            <div className="row">
-                                                <div className="input-field col s6">
-                                                    <input onChange={handleSetLoginInput1} placeholder="Placeholder" id="first_name2" type="text" className="validate" />
-                                                    <label for="first_name">Username:</label>
-                                                </div>
-                                            </div>
                                             <div className="row">
                                                 <div className="input-field col s12">
                                                     <input onChange={handleSetLoginInput2} id="email2" type="email" className="validate" />
@@ -144,8 +122,8 @@ function Login() {
                                         <form className="col s12">
                                             <div className="row">
                                                 <div className="input-field col s6">
-                                                    <input onChange={handleSetInput1} placeholder="Placeholder" id="first_name" type="text" className="validate" />
-                                                    <label for="first_name">Username:</label>
+                                                    <input onChange={handleSetInput1} id="first_name" type="text" className="validate" />
+                                                    <label for="first_name">Username</label>
                                                 </div>
                                             </div>
                                             <div className="row">

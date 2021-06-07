@@ -107,7 +107,6 @@
 
 .data_container .table_wrapper {
     overflow: auto;
-    /* width: 950px; */
     margin: 0 auto;
     background-color: #fff;
     max-height: 400px;

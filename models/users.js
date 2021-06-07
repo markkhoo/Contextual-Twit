@@ -31,16 +31,6 @@ const userSchema = new Schema({
     ]
 });
 
-// userSchema.methods.checkPassword = function(password, callback) {
-//     bcrypt.compare(password, this.password, function(err, same) {
-//       if (err) {
-//         callback(err);
-//       } else {
-//         callback(err, same);
-//       }
-//     });
-//   }
-
 const User = mongoose.model("User", userSchema);
 
 

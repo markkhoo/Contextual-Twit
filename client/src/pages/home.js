@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+//import Header from "../components/Header";
 import React, { useState, useEffect, useContext } from "react";
 import Summary from "../components/summary/summary";
 import Chart_Vader from "../components/chart_vader/chart_vader";
@@ -7,17 +7,14 @@ import Data_Container from "../components/data_container/data_container";
 import API from "../utils/API"
 import "./home.css";
 import axios from "axios"
-
 import { Link } from "react-router-dom";
 import { MenuContext } from 'react-flexible-sliding-menu';
 import "../components/Header.css";
-
 //loading
 import { trackPromise } from "react-promise-tracker";
 import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
-
 function Home(props) {
 
     const { toggleMenu } = useContext(MenuContext);
@@ -57,7 +54,6 @@ function Home(props) {
     };
 
     function handleLogout(event) {
-        // event.preventDefault()
         axios.post("/api/logout")
 
             .then(function (response) {
@@ -77,7 +73,7 @@ function Home(props) {
                         color="#f06292"
                         height={50}
                         width={50}
-                        timeout={5000} //3 secs
+                        timeout={5000} 
                     />
                     <h4>&#x1F60a; Analysing your data</h4>
                     <Loader
@@ -85,7 +81,7 @@ function Home(props) {
                         color="#f06292"
                         height={50}
                         width={50}
-                        timeout={5000} //3 secs
+                        timeout={5000} 
                     />
                 </div>
             </div>
@@ -118,7 +114,6 @@ function Home(props) {
             <div>
                 <div className="jumbotron jumbotron-fluid text-center">
                     <div className="container">
-                        {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
                         <img src="logo2.png" alt="logo" />
                         <p className="lead">Search twitter and let us analyze its meaning!!</p>
                     </div>
@@ -128,7 +123,6 @@ function Home(props) {
                         <div className="hamburger-box" onClick={toggleMenu}>
                             <div className="hamburger-inner"></div>
                         </div>
-                        {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                         <ul className="hide-on-med-and-down">
                             <li>
                                 <Link
@@ -142,7 +136,6 @@ function Home(props) {
                                     Home
                                 </Link>
                             </li>
-
                             <li>
                                 <Link
                                     onClick={handleLogout}
@@ -159,7 +152,6 @@ function Home(props) {
                         </ul>
                     </div>
                 </nav>
-
                 <ul className="sidenav" id="mobile-demo">
                     <li><a href="sass.html">Sass</a></li>
                     <li><a href="badges.html">Components</a></li>
@@ -193,9 +185,7 @@ function Home(props) {
                 <div className="content_left">
                     <h2 className="content_title">Trending on Twitter</h2>
                     <div className="collection with-header">
-                        {/* <li className="collection-header"></li> */}
                         {renderTweetCollection()}
-
                     </div>
                 </div>
                 <div className="content_right">
