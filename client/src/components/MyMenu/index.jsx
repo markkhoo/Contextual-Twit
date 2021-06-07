@@ -19,18 +19,10 @@ const MenuIndex = () => {
                 >
                     Home
                 </Link>
-                </li>
-                <li>
-                <Link
-                    to="/login"
-                    onClick={toggleMenu}
-                >   
-                    Login
-                </Link>
                 </li> */}
                 <li>
                 <Link
-                    to="/logout"
+                    to="/login"
                     onClick={toggleMenu}
                 >
                     Logout

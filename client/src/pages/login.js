@@ -9,8 +9,6 @@ import { STATES } from "mongoose";
 
 const axios = require('axios')
 
-
-
 function Login() {
     const [redirect, setRedirect] = useState(false);
     // let history = useHistory();
@@ -145,8 +143,8 @@ function Login() {
                                         <form className="col s12">
                                             <div className="row">
                                                 <div className="input-field col s6">
-                                                    <input onChange={handleSetInput1} placeholder="Placeholder" id="first_name" type="text" className="validate" />
-                                                    <label for="first_name">Username:</label>
+                                                    <input onChange={handleSetInput1} id="first_name" type="text" className="validate" />
+                                                    <label for="first_name">Username</label>
                                                 </div>
                                             </div>
                                             <div className="row">

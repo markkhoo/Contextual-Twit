@@ -6,7 +6,7 @@
 } */
 
 .container img {
-    width: 40%;
+    width: 60%;
 }
 
 .container p {
@@ -78,6 +78,13 @@
 @media screen and (max-width: 768px) {
     .hamburger-box {
         display: block;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container p {
+        font-size: 15px;
+        font-family: 'Bebas Neue', cursive;
     }
 }
 

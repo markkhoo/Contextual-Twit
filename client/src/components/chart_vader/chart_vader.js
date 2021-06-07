@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import './chart_vader.css';
 
@@ -12,7 +12,7 @@ function Chart_Vader(props) {
             holder.push({
                 x: new Date(Date.parse(x.created_at)),
                 y: x.vader_intensity.compound,
-                r: Math.max(Math.log10(x.retweet_count) * 10 , 3)
+                r: Math.max(Math.log10(x.retweet_count) * 10, 3)
             });
         });
         setDat1(holder);
@@ -20,16 +20,17 @@ function Chart_Vader(props) {
 
     useEffect(() => {
         setSet1(props.data);
-    },[props]);
+    }, [props]);
 
     return (
+        <Fragment>
+        <h2 className="content_title">Polarity and Engagement</h2>
         <div className="chart">
-            <h2 className="content_title">Chart 1</h2>
             <div className="bubble">
                 <Bubble
                     data={{
                         datasets: [{
-                            label: 'First Dataset',
+                            label: 'Most Recent Tweets',
                             data: getDat1,
                             backgroundColor: 'rgb(255, 99, 132)'
                         }]
@@ -39,30 +40,30 @@ function Chart_Vader(props) {
                     options={{
                         maintainAspectRatio: true,
                         scales: {
-                            xAxes: [
-                                {
-                                    type: 'time',
-                                    // time: {
-                                    //     displayFormats: {
-                                    //         second: 'h:mm:ss a'
-                                    //     }
-                                    // }
-
-                                }
-                            ],
-                            yAxes: [
+                            y: [
                                 {
                                     ticks: {
                                         min: -1,
                                         max: 1
                                     }
                                 }
-                            ]
+                            ],
+                            x: {
+                                ticks: {
+                                    // Time in Axes
+                                    callback: function (value, index, values) {
+                                        return (
+                                            new Date(value)
+                                        );
+                                    }
+                                }
+                            }
                         }
                     }}
                 />
             </div>
         </div>
+    </Fragment>
     )
 };
 

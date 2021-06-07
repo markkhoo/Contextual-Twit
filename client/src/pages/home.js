@@ -132,11 +132,8 @@ function Home(props) {
                             <li className="collection-item avatar">
                                 <h5><i className="fab fa-twitter"></i>
                                 {tweet.screen_name} </h5>
-                                <br></br>
-                                <p> { tweet.created_at} <br/>
-                                <br></br>
-                                    { tweet.text}
-                                </p>
+                                <strong>{ tweet.created_at}</strong>
+                                <p>{ tweet.text}</p>
                                     
                             </li>
                                 {/* <li className="collection-item">{tweet.screen_name}</li>
@@ -153,7 +150,7 @@ function Home(props) {
 
     return (
         <div className="searchAndSubmit">
-              <div>
+            <div>
                 <div className="jumbotron jumbotron-fluid text-center">
                     <div className="container">
                         {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
@@ -179,7 +176,7 @@ function Home(props) {
                                     }
                                 >
                                     Home
-                        </Link>
+                                </Link>
                             </li>
 
                             <li>
@@ -193,7 +190,7 @@ function Home(props) {
                                     }
                                 >
                                     Logout
-                        </Link>
+                                </Link>
                             </li>
                         </ul>
                     </div>
