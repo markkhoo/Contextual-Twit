@@ -12,7 +12,7 @@ const MenuIndex = () => {
                 x
             </button>
             <ul>
-                <li>
+                {/* <li>
                 <Link
                     to="/"
                     onClick={toggleMenu}
@@ -27,7 +27,7 @@ const MenuIndex = () => {
                 >   
                     Login
                 </Link>
-                </li>
+                </li> */}
                 <li>
                 <Link
                     to="/logout"
