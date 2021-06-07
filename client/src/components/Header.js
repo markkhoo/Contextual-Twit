@@ -22,7 +22,7 @@ function Header(props) {
                     </div>
                     {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                     <ul className="hide-on-med-and-down">
-                        <li>
+                        {/* <li>
                         <Link
                             to="/"
                             className={
@@ -33,9 +33,9 @@ function Header(props) {
                         >
                             Home
                         </Link>
-                        </li>
+                        </li> */}
                        
-                        <li>
+                        {/* <li>
                         <Link
                             onClick={ props.handleLogout }
                             to="/login"
@@ -47,7 +47,7 @@ function Header(props) {
                         >
                             Logout
                         </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </nav>
