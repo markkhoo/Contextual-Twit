@@ -99,7 +99,7 @@ function Login() {
 
         <div>
             { redirect ? <Redirect to= {{
-                pathname: "/",
+                pathname: "/home",
                 state: { userName: login1, email: login2 ,password: login3 }
     
             }} /> :

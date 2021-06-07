@@ -102,11 +102,9 @@ function Home(props) {
                             <li className="collection-item avatar">
                                 <h5><i className="fab fa-twitter"></i>
                                 {tweet.screen_name} </h5>
-                                <br></br>
-                                <p> { tweet.created_at} <br/>
-                                <br></br>
-                                    { tweet.text}
-                                </p>                                
+                                <strong>{ tweet.created_at}</strong>
+                                <p>{ tweet.text}</p>
+                                    
                             </li>
                         </ul>
                     </div>
@@ -134,9 +132,9 @@ function Home(props) {
                         <ul className="hide-on-med-and-down">
                             <li>
                                 <Link
-                                    to="/"
+                                    to="/home"
                                     className={
-                                        window.location.pathname === "/" || window.location.pathname === "/home"
+                                        window.location.pathname === "/home" || window.location.pathname === "/home"
                                             ? "nav-link active"
                                             : "nav-link"
                                     }
@@ -148,9 +146,9 @@ function Home(props) {
                             <li>
                                 <Link
                                     onClick={handleLogout}
-                                    to="/login"
+                                    to="/"
                                     className={
-                                        window.location.pathname === "/login" || window.location.pathname === "/logout"
+                                        window.location.pathname === "/" || window.location.pathname === "/login"
                                             ? "nav-link active"
                                             : "nav-link"
                                     }
