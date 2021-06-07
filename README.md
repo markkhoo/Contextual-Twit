@@ -1,7 +1,7 @@
 # Contextual Twit
 
 ## Site Picture
-![Site]()
+![Site](Contextual_Twit.gif)
 
 ## Technologies Used
 - CSS - used to style an HTML document
@@ -17,15 +17,14 @@
 - Twitter API - returns a collection of relevant Tweets matching a specified query
 - GitBash - for cloning repository and pushing code to GitHub
 - GitHub - holds repository that deploys to GitHub Pages
-- bCrypt - Used for password security
+- bcrypt - Used for password security
 - React Promise tracker - Used to track a promise and wait until it is resolved
 -React-Loader-Spinner - Used on the client side to render a loading icon while a promise is resolved
 - React-flexible-sliding-menu - Used to create the toggle menu 
 
 # Summary
 
-Contextual Twit is a tool that can get the most recent tweets by any topic and help you find insight with sentiment analysis.
-With this app, the user can see trending topics on Twitter. They can also search for a topic on Twitter and the app will render charts and data based on said search that analyzes the sentiment of the general public on that specific topic. This app can be used by companies and individuals for marketing, research, development etc. This file contains code that was created using Javascript, React and Node.js. 
+Contextual Twit is a tool that can get the most recent tweets by any topic and help you find insight with sentiment analysis. With this app, the user can see trending topics on Twitter. Users can also search Tweets by query and the app will display an visualized sentiment analysis powered by [IBM Watson](https://www.ibm.com/watson/services/tone-analyzer/) and [VADER Sentiment](https://pypi.org/project/vaderSentiment/). This app can help companies and individuals for marketing research, development, etc. Visit the application [HERE](https://tranquil-castle-82838.herokuapp.com/). 
 
 ## Code Snippet
 ```javascript
@@ -52,7 +51,7 @@ const renderTweetCollection = () => {
 
         return result;
     };
-    ```
+```
 
 ```javascript
 <javascript>
