@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
-import './chart_watson.css';
 
 function Chart_Watson(props) {
     const [getSet2, setSet2] = useState([]);

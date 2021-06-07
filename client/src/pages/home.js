@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+//import Header from "../components/Header";
 import React, { useState, useEffect, useContext } from "react";
 import Summary from "../components/summary/summary";
 import Chart_Vader from "../components/chart_vader/chart_vader";
@@ -7,33 +7,21 @@ import Data_Container from "../components/data_container/data_container";
 import API from "../utils/API"
 import "./home.css";
 import axios from "axios"
-
 import { Link } from "react-router-dom";
 import { MenuContext } from 'react-flexible-sliding-menu';
 import "../components/Header.css";
-
 //loading
 import { trackPromise } from "react-promise-tracker";
-// import { render } from "react-dom";
 import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
 //loading
-
 function Home(props) {
 
     const { toggleMenu } = useContext(MenuContext);
-
-
     const [getinput, setInput] = useState({});
     const [getData, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false); //sets the loading icon 
     const [trending, setTrending] = useState(null);
-
-    // ===== Console Log Fetched Data =====
-    // useEffect(() => {
-    //     console.log(getData);
-    //     console.log(props.location.state);
-    // }, []);
 
     useEffect(() => {
         loadTrending()
@@ -49,16 +37,11 @@ function Home(props) {
 }
     useEffect(() => {
         console.log(getData);
-
         console.log(props.location.state);
-
     }, [])
-    
-
     const handleSetInput = (event) => {
         setInput({ thekey: event.target.value });
     };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         setIsLoading(true);
@@ -71,7 +54,6 @@ function Home(props) {
     };
 
     function handleLogout(event) {
-        // event.preventDefault()
         axios.post("/api/logout")
 
             .then(function (response) {
@@ -83,9 +65,7 @@ function Home(props) {
     const LoadingIndicator = props => {
         const { promiseInProgress } = usePromiseTracker();
         return (
-
             promiseInProgress &&
-
             <div className="wrapper">
                 <div className="loading">
                     <Loader
@@ -93,7 +73,7 @@ function Home(props) {
                         color="#f06292"
                         height={50}
                         width={50}
-                        timeout={5000} //3 secs
+                        timeout={5000} 
                     />
                     <h4>&#x1F60a; Analysing your data</h4>
                     <Loader
@@ -101,29 +81,15 @@ function Home(props) {
                         color="#f06292"
                         height={50}
                         width={50}
-                        timeout={5000} //3 secs
+                        timeout={5000} 
                     />
                 </div>
             </div>
-
         );
         };
-    
-
-
-    // function handleLogout (event) {
-    //     event.preventDefault()
-    //     axios.post("/api/logout")
-    //         .then(function (response) {
-    //             console.log(response)
-
-    //         })
-    //     console.log(login1, login2, login3)
-    // }
-
+//renders the trending tweets    
     const renderTweetCollection = () => {
         let result = null;
-
         if (trending) {
             result = trending.map((tweet) => {
                 return (
@@ -136,41 +102,33 @@ function Home(props) {
                                 <p>{ tweet.text}</p>
                                     
                             </li>
-                                {/* <li className="collection-item">{tweet.screen_name}</li>
-                            <li className="collection-item">{tweet.created_at}</li>
-                            <li className="collection-item">{tweet.text}</li> */}
                         </ul>
                     </div>
                 )
             });
         }
-
         return result;
     };
-
     return (
         <div className="searchAndSubmit">
             <div>
                 <div className="jumbotron jumbotron-fluid text-center">
                     <div className="container">
-                        {/* <h1 className="display-4">Welcome to Contextual Twit</h1> */}
                         <img src="logo2.png" alt="logo" />
                         <p className="lead">Search twitter and let us analyze its meaning!!</p>
                     </div>
                 </div>
                 <nav>
-
                     <div className="nav-wrapper">
                         <div className="hamburger-box" onClick={toggleMenu}>
                             <div className="hamburger-inner"></div>
                         </div>
-                        {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                         <ul className="hide-on-med-and-down">
                             <li>
                                 <Link
-                                    to="/"
+                                    to="/home"
                                     className={
-                                        window.location.pathname === "/" || window.location.pathname === "/home"
+                                        window.location.pathname === "/home" || window.location.pathname === "/home"
                                             ? "nav-link active"
                                             : "nav-link"
                                     }
@@ -178,13 +136,12 @@ function Home(props) {
                                     Home
                                 </Link>
                             </li>
-
                             <li>
                                 <Link
                                     onClick={handleLogout}
-                                    to="/login"
+                                    to="/"
                                     className={
-                                        window.location.pathname === "/login" || window.location.pathname === "/logout"
+                                        window.location.pathname === "/" || window.location.pathname === "/login"
                                             ? "nav-link active"
                                             : "nav-link"
                                     }
@@ -195,7 +152,6 @@ function Home(props) {
                         </ul>
                     </div>
                 </nav>
-
                 <ul className="sidenav" id="mobile-demo">
                     <li><a href="sass.html">Sass</a></li>
                     <li><a href="badges.html">Components</a></li>
@@ -229,9 +185,7 @@ function Home(props) {
                 <div className="content_left">
                     <h2 className="content_title">Trending on Twitter</h2>
                     <div className="collection with-header">
-                        {/* <li className="collection-header"></li> */}
                         {renderTweetCollection()}
-
                     </div>
                 </div>
                 <div className="content_right">

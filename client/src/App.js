@@ -1,24 +1,17 @@
 import React from "react";
-// import { Route } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./pages/login";
-
-import { trackPromise } from "react-promise-tracker";
-import { render } from "react-dom";
-import { usePromiseTracker } from "react-promise-tracker";
-import Loader from "react-loader-spinner";
 
 const App = () => {
   return (
     <div>
       {/* <Router> */}
-        <div>
+      <div>
+        <Route exact path="/" component={Login} />
         <Route exact path="/login" component={Login} />
-
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-        </div>
+        <Route exact path="/home" component={Home} />
+      </div>
       {/* </Router> */}
     </div>
 

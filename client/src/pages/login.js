@@ -2,19 +2,12 @@ import Header from "../components/Header";
 import React, { useState } from "react";
 import "./login.css";
 import { Redirect } from "react-router-dom";
-import { STATES } from "mongoose";
-// import { useHistory } from "react-router-dom";
 
-
-
-const axios = require('axios')
+const axios = require('axios');
 
 function Login() {
     const [redirect, setRedirect] = useState(false);
-    // let history = useHistory();
-
     //register user
-
     const [account1, setAccount1] = useState("");
     const [account2, setAccount2] = useState("");
     const [account3, setAccount3] = useState("");
@@ -47,9 +40,7 @@ function Login() {
             .then(function (response) {
                 console.log(response)
             })
-
     }
-
     //login user
     const [login1, setlogin1] = useState("");
     const [login2, setlogin2] = useState("");
@@ -61,8 +52,6 @@ function Login() {
         console.log(setlogin1)
 
     }
-
-
     function handleSetLoginInput2(event) {
         setlogin2(event.target.value)
         console.log(setlogin2)
@@ -73,8 +62,6 @@ function Login() {
         console.log(setlogin2)
 
     }
-
-
     function handleLogin(event) {
         event.preventDefault()
 
@@ -87,24 +74,16 @@ function Login() {
                 console.log(response)
                 if (response) {
                     setRedirect(true)
-                    // document.location.replace('/');
-                    // history.push('/')
-                    // history.push("/");
-
                     console.log("hello2")
-
-
                 }
             })
         console.log(login1, login2, login3)
     }
 
     return (
-
-
         <div>
             { redirect ? <Redirect to= {{
-                pathname: "/",
+                pathname: "/home",
                 state: { userName: login1, email: login2 ,password: login3 }
     
             }} /> :

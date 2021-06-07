@@ -12,6 +12,7 @@ const MenuIndex = () => {
                 x
             </button>
             <ul>
+                {/* adds home button to hamburger */}
                 {/* <li>
                 <Link
                     to="/"

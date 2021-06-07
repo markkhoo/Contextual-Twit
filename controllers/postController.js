@@ -1,12 +1,10 @@
 const db = require("../models");
-// const axios = require('axios');
-// const router = require('express').Router();
 require('dotenv').config();
-const Twitter = require('twitter');
 const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const vader = require('vader-sentiment');
 // TWITTER Authentication 
+const Twitter = require('twitter');
 const client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -19,9 +17,8 @@ const toneAnalyzer = new ToneAnalyzerV3({
   serviceUrl: 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com'
 });
 
-
 module.exports = {
-  //==========================ROUTE WORKS-GETS ALL USERS*****************WE NEED TO REMOVE THIS ROUTE LATER, DON'T WANT USER INFO BEING PULLED***********************
+  //=========================ROUTE WORKS-GETS ALL USERS*****************WE NEED TO REMOVE THIS ROUTE LATER, DON'T WANT USER INFO BEING PULLED*********
   findAll: function (req, res) {
     db.User.find(req.query)
       // .sort({ _id: -1 })
@@ -29,13 +26,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  //=======================================ROUTE WORKS*****************REGISTER NEW USER ROUTE************************************************************************
+  //================================ROUTE WORKS*****************REGISTER NEW USER ROUTE******
   create: function (req, res) {
     db.User.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-//=========================================DOES NOT WORK************LOGOUT ROUTE***************************************************************************************
+//=====================================DOES NOT WORK************LOGOUT ROUTE******************
   destroy: function (req, res) {
     if (req.session.logged_in) {
       req.session.destroy(() => {
@@ -46,43 +43,11 @@ module.exports = {
     }
   },
 
-  //======================================DOES NOT WORK****************LEAVE IT COMMENTED OUT FOR NOW*****************************************************************
-  //   findOne: function (req, res) {
-  //     const userData = db.User.findOne({ email: req.body.email })
-  //     if (!userData) {
-  //       res.status(400).json({ message: 'Incorrect Email or Password, please try again' })
-  //       return;
-  //     }
-  //     console.log("******-----")
-  //     console.log(userData)
-
-  //     req.session.save(() => {
-  //                    req.session.user_id = userData.id;
-  //                    req.session.logged_in = true;
-
-  //                    res.json({ user: userData, message: 'You Are Now Logged In!'});
-  //                })
-  //     res.json({ user: userData, message: 'You Are Now Logged In!'})
-  //      .then(dbModel => res.json(dbModel))
-
-  //     .catch(err => res.status(422).json(err))
-  // },
-
-//========================LOGIN ROUTE WORKS==========NEED TO DO A PASSWORD VALIDATION============================
-//===============================================================================================================
+//======================================LOGIN ROUTE WORKS======================================
+//=============================================================================================
   findOne: async function (req, res) {
 
     try {
-      // let userData = await db.User.findOne({ email: req.body.email })
-      // console.log("******1")
-      // console.log(userData)
-
-      // if (!userData) {
-      //   res.status(500).json({ message: 'Incorrect Email or Password, please try again----' });
-      //   return;
-      // }
-
-
       userData = await db.User.findOne({email: req.body.email, password: req.body.password })
       console.log("******2")
       console.log(userData)
@@ -91,79 +56,30 @@ module.exports = {
         res.status(500).json({ message: 'Incorrect Email or Password, please try again!' });
         return;
       }
-
-
-
-      // await userData.checkPassword(req.body.password, function(err, same) {
-      //   if (err) {
-      //     res.status(500)
-      //       .json({
-      //       error: 'Internal error please try again'
-      //     });
-
-      //   } else if (!same) {
-      //     res.status(401)
-      //       .json({
-      //       error: 'Incorrect email or password'
-      //     });
-      //   }
-      // });
-
       console.log("-------")
-      // console.log(validPass)
-      // if (!validPass) {
-      //   res.status(400).json({ message: 'Incorrect Email or Password, please try again' });
-      //   return;
-      // }
-
+      //saves session
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
-
         res.json({ user: userData, message: 'You Are Now Logged In!' });
       });
-
       console.log('hi user');
     } catch (err) {
       console.log(err)
       res.status(400).json(err);
     }
   },
-
-
-  // update: function(req, res) {
-  //   db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  // remove: function(req, res) {
-  //   db.User.findById({ _id: req.params.id })
-  //     .then(dbModel => dbModel.remove())
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
-
+//gets trending tweets upon rendering of the page
   getTrending: function(req, response){
     client.get('search/tweets', { q: 'trending', lang: 'en', count: 10 })
-    //.then(tweet => response.json(tweet)) 
-    
-
     .then(response => 
-
       response.statuses.map(
         status => {return  {text: status.text, created_at: status.created_at, screen_name: status.user.screen_name} }
         )
-
     )
     .then(tweets => response.json(tweets)) 
     
     .catch(err => console.log(err));
-    
-    
-   
-    
-   // .catch(err => res.status(500).json(err));
-
   },
   
   //*****************************START OF SENTIMENT ANALYSIS API CALL ROUTE***********************************
@@ -184,18 +100,9 @@ module.exports = {
           text: tweet.text.replace(/(\r\n|\n|\r)/gm, " "),
         });
       });
-
-      // console.log(tweets.statuses); console.log(toneChatParams);
-
       // Watson-Sentiment
       toneAnalyzer.toneChat(toneChatParams)
         .then(utteranceAnalyses => {
-
-          // console.log(JSON.stringify(utteranceAnalyses, null, 2));
-          // utteranceAnalyses.result.utterances_tone.forEach((data1) => {
-          //   console.log(data1);
-          // });
-
           for (let i = 0; i < tweets.statuses.length; i++) {
             // Vader-Sentiment
             let intensity = vader.SentimentIntensityAnalyzer.polarity_scores(toneChatParams.utterances[i].text);
@@ -236,8 +143,6 @@ module.exports = {
               });
             };
           };
-
-          // console.log(data); 
           res.json(data)// <=== Data to deliver here!
         })
         

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './summary.css';
 
 function Summary(props) {
     const [getSet3, setSet3] = useState([]);

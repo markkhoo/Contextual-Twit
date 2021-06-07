@@ -10,12 +10,17 @@
 - React - a JavaScript library for building user interfaces
 - Express - a Node.js web application framework that provides a robust set of features for web and mobile applications.
 - MongoDB - stores data in JSON-like documents. 
+- Mongoose - Used with MongoDB
 - Chart.js - allows you to easily make graphs to display data
 - Vader - sentiment analysis tool that is specifically attuned to sentiments expressed in social media
 - Watson Tone Analyzer - uses linguistic analysis to detect emotional and language tones in written text
 - Twitter API - returns a collection of relevant Tweets matching a specified query
 - GitBash - for cloning repository and pushing code to GitHub
 - GitHub - holds repository that deploys to GitHub Pages
+- bCrypt - Used for password security
+- React Promise tracker - Used to track a promise and wait until it is resolved
+-React-Loader-Spinner - Used on the client side to render a loading icon while a promise is resolved
+- React-flexible-sliding-menu - Used to create the toggle menu 
 
 # Summary
 
